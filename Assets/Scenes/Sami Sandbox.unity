@@ -335,19 +335,7 @@ MonoBehaviour:
     m_ActionId: a62293e8-bd6c-4cf1-ae9d-f4fcd41555c4
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1889694796}
-        m_TargetAssemblyTypeName: Bombaman.Character, Assembly-CSharp
-        m_MethodName: DropBomb
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 73a45fc0-ed11-435b-b93d-05f164f937d1
     m_ActionName: Player/Bomb[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
