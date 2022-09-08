@@ -60,6 +60,7 @@ namespace Bombaman
             if (bombPrefab)
             {
                 Instantiate(bombPrefab, new Vector3(Mathf.RoundToInt(myTransform.position.x), Mathf.RoundToInt(myTransform.position.y), bombPrefab.transform.position.y), bombPrefab.transform.rotation);
+                // Adds a true boolean to stop players from dropping multiple bombs per frame.
                 isDroppingBomb = true;
             }
         }
