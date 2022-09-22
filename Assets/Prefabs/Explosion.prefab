@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4152980283890463184}
   - component: {fileID: 298917825874163972}
+  - component: {fileID: 1290347830434477194}
   m_Layer: 0
   m_Name: Explosion
   m_TagString: Untagged
@@ -84,3 +85,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1290347830434477194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914411516402837139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b73343cf6dc7d654ca2e88d1f90ab8ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
