@@ -19,6 +19,8 @@ namespace Bombaman
 
         private Transform myTransform;
 
+        [SerializeField] private float Speed;
+
         // Start is called before the first frame update
         private void Start()
         {
@@ -63,13 +65,18 @@ namespace Bombaman
 
         public void ExplodeTimer(float timer)
         {
-            throw new System.NotImplementedException();
+            
         }
 
         // Added a cooldown to how much bombs you can drop per second.
         private void ChangeBombStatus()
         {
             isDroppingBomb = false;
+        }
+
+        public void ExplosionSize(int Size)
+        {
+            
         }
 
         //public void DropBomb()
