@@ -37,15 +37,15 @@ namespace Bombaman
                   i, levelMask);
                 //A RaycastHit object holds all the information about what and at which position the Raycast hits -- or doesn't hit.
                
-                //If the raycast doesn't hit anything then it's a free tile.
+                //If the raycast doesn't hit anything then it's a free space.
                 if (!hit.collider)
                 {
+                    //Spawns an explosion at the position the raycast checked.
                     Instantiate(explosionPrefab, transform.position + (i * direction),
-                      //Spawns an explosion at the position the raycast checked.
                       explosionPrefab.transform.rotation);
-                    //The raycast hits a block.
+                    
                 }
-                else
+                else //The raycast hits a block.
                 { //Once the raycast hits a block, it breaks out of the for loop. This ensures the explosion can't jump over walls.
                     break;
                     
