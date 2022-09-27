@@ -15,6 +15,8 @@ namespace Bombaman
 
         private bool isDroppingBomb = false;
 
+        private IMove mover;
+
         [SerializeField] private GameObject bombPrefab;
 
         private Transform myTransform;
@@ -27,7 +29,18 @@ namespace Bombaman
             // Adds players input which is binded to "BOMB" to be called through variable.
             bomb = playerInput.actions["Bomb"];
 
+            mover.Setup(Speed);
+
             myTransform = gameObject.transform;
+        }
+
+        private void Awake()
+        {
+            mover = GetComponent<IMove>();
+            if (mover == null)
+            {
+                Debug.LogError("Cant find a component which implements the IMove interface!");
+            }
         }
 
         // Update is called once per frame
@@ -49,6 +62,7 @@ namespace Bombaman
         {
             // Reads the users input using inputsystem callback.
             input = context.ReadValue<Vector2>();
+            mover.Move(input);
         }
 
         public void DropBomb(GameObject BombPrefab, Transform DroppersTransform)
