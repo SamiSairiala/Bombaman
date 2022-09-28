@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 8777517531531673835}
   - component: {fileID: 4007596657134248846}
   - component: {fileID: 3086044044967623925}
-  - component: {fileID: -6047352879559657166}
+  - component: {fileID: -3532445931231397189}
   m_Layer: 0
   m_Name: bomb
-  m_TagString: Explosion
+  m_TagString: Bomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,6 +103,8 @@ MonoBehaviour:
   levelMask:
     serializedVersion: 2
     m_Bits: 192
+  exploded: 1
+  collider: {fileID: 3086044044967623925}
 --- !u!70 &3086044044967623925
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -119,14 +121,14 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.99999994, y: 2}
   m_Direction: 0
---- !u!70 &-6047352879559657166
+--- !u!70 &-3532445931231397189
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4144720948872345327}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1

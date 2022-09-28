@@ -9,10 +9,12 @@ namespace Bombaman
     {
         [SerializeField] private GameObject explosionPrefab;
         public LayerMask levelMask;
-        private bool exploded = false;
+        public bool exploded = false;
 
         // TODO: When we have bombs change collider type
-        private CapsuleCollider2D collider;
+        [SerializeField]private CapsuleCollider2D collider;
+
+        
 
         // Start is called before the first frame update
         private void Start()
@@ -20,7 +22,7 @@ namespace Bombaman
             
             Invoke("Explode", 3f);
             Invoke("EnableCollider", 0.5f);
-            collider = gameObject.transform.GetComponent<CapsuleCollider2D>();
+            
 
         }
 
@@ -31,26 +33,44 @@ namespace Bombaman
 
         }
         
-        private void Explode()
+        public void Explode()
         {
+           
+
+           
+                Instantiate(explosionPrefab, transform.position, Quaternion.identity); // Spawns an explosion at bomb's location
+                collider.enabled = false;
+                StartCoroutine(CreateExplosions(Vector2.up)); // The StartCoroutine calls will start up the CreateExplosions IEnumerator once for every direction.
+                StartCoroutine(CreateExplosions(Vector2.right));
+                StartCoroutine(CreateExplosions(Vector2.down));
+                StartCoroutine(CreateExplosions(Vector2.left));
             
-            Instantiate(explosionPrefab, transform.position, Quaternion.identity); // Spawns an explosion at bomb's location
-            collider.enabled = false;
-            StartCoroutine(CreateExplosions(Vector2.up)); // The StartCoroutine calls will start up the CreateExplosions IEnumerator once for every direction.
-            StartCoroutine(CreateExplosions(Vector2.right));
-            StartCoroutine(CreateExplosions(Vector2.down));
-            StartCoroutine(CreateExplosions(Vector2.left));
-            
-            GetComponent<SpriteRenderer>().enabled = false; // Disables mesh renderer making the bomb invisible.
+                GetComponent<SpriteRenderer>().enabled = false; // Disables mesh renderer making the bomb invisible.
             
 
-            //transform.Find("Collider").gameObject.SetActive(false);
-            exploded = true;
-            Destroy(gameObject, .3f); // Destroys the bomb after 0.3 seconds; this ensures all explosions will spawn before the GameObject is destroyed.
+                //transform.Find("Collider").gameObject.SetActive(false);
+                exploded = true;
+                Destroy(gameObject, .3f); // Destroys the bomb after 0.3 seconds; this ensures all explosions will spawn before the GameObject is destroyed.
+            
         }
 
-        
+        public void cancelInvoke()
+        {
+            CancelInvoke("Explode");
+        }
 
+
+        //public void OnTriggerEnter2D(Collider2D other)
+        //{ // Checks if the bomb has exploded // Check if what the explosion touches has tag "Explosion"
+        //    if (other.tag == "Bomb")
+        //    {
+                
+        //        Debug.Log("Chain reaction!");
+        //        CancelInvoke("Explode");
+
+        //        Explode();
+        //    }
+        //}
         private IEnumerator CreateExplosions(Vector3 direction)
         {
             //Iterates a for loop for every unit of distance you want the explosions to cover. In this case, the explosion will reach two meters.
@@ -72,7 +92,9 @@ namespace Bombaman
                 }
                 else //The raycast hits a block.
                 { //Once the raycast hits a block, it breaks out of the for loop. This ensures the explosion can't jump over walls.
+                    
                     break;
+                    
                     
                 }
 
@@ -81,14 +103,7 @@ namespace Bombaman
             }
         }
 
-        public void OnTriggerEnter2D(Collider2D other)
-        { // Checks if the bomb has exploded // Check if what the explosion touches has tag "Explosion"
-            if (!exploded && other.CompareTag("Explosion"))
-            {
-                CancelInvoke("Explode");
-                Explode();
-            }
-        }
+        
 
 
     }
