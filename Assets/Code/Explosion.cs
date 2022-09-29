@@ -15,24 +15,24 @@ namespace Bombaman
         //    Invoke("Destroy", 2f);
         //}
 
-        //public void OnTriggerEnter2D(Collider2D other)
-        //{ // Checks if the bomb has exploded // Check if what the explosion touches has tag "Explosion"
-        //    if (other.tag == "Bomb" && Chained == false)
-        //    {
-        //        Debug.Log("Found a bomb");
-        //        bombScript = other.gameObject.GetComponent<Bomb>();
-        //        if(bombScript.exploded == false)
-        //        {
-        //            Chained = true;
+        public void OnTriggerEnter2D(Collider2D other)
+        { // Checks if the bomb has exploded // Check if what the explosion touches has tag "Explosion"
+            if (other.tag == "Bomb" && Chained == false)
+            {
+                Debug.Log("Found a bomb");
+                bombScript = other.gameObject.GetComponent<Bomb>();
+                if (bombScript.exploded == false)
+                {
+                    Chained = true;
 
-        //            Debug.Log("Chain reaction!");
-        //            bombScript.cancelInvoke();
+                    Debug.Log("Chain reaction!");
+                    bombScript.cancelInvoke();
 
-        //            bombScript.Explode();
-        //        }
-               
-        //    }
-        //}
+                    bombScript.Explode();
+                }
+
+            }
+        }
 
         private void OnDestroy()
         {

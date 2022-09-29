@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+//using System.Diagnostics;
 using UnityEngine;
 
 namespace Bombaman
@@ -21,7 +22,7 @@ namespace Bombaman
         {
             
             Invoke("Explode", 3f);
-            Invoke("EnableCollider", 0.5f);
+            Invoke("EnableCollider", 0.4f);
             
 
         }
@@ -44,10 +45,10 @@ namespace Bombaman
                 StartCoroutine(CreateExplosions(Vector2.right));
                 StartCoroutine(CreateExplosions(Vector2.down));
                 StartCoroutine(CreateExplosions(Vector2.left));
-            
+                
                 GetComponent<SpriteRenderer>().enabled = false; // Disables mesh renderer making the bomb invisible.
-            
 
+                Debug.Log("Exploding");
                 //transform.Find("Collider").gameObject.SetActive(false);
                 exploded = true;
                 Destroy(gameObject, .3f); // Destroys the bomb after 0.3 seconds; this ensures all explosions will spawn before the GameObject is destroyed.
@@ -62,9 +63,9 @@ namespace Bombaman
 
         //public void OnTriggerEnter2D(Collider2D other)
         //{ // Checks if the bomb has exploded // Check if what the explosion touches has tag "Explosion"
-        //    if (other.tag == "Bomb")
+        //    if (other.CompareTag("Bomb"))
         //    {
-                
+
         //        Debug.Log("Chain reaction!");
         //        CancelInvoke("Explode");
 
