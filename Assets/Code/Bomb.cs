@@ -61,17 +61,20 @@ namespace Bombaman
         }
 
 
-        //public void OnTriggerEnter2D(Collider2D other)
-        //{ // Checks if the bomb has exploded // Check if what the explosion touches has tag "Explosion"
-        //    if (other.CompareTag("Bomb"))
-        //    {
+        public void OnTriggerEnter2D(Collider2D other)
+        { // Checks if the bomb has exploded // Check if what the explosion touches has tag "Explosion"
+            if (other.CompareTag("Explosion"))
+            {
+                if(exploded == false)
+                {
+                    Debug.Log("Chain reaction!");
+                    CancelInvoke("Explode");
 
-        //        Debug.Log("Chain reaction!");
-        //        CancelInvoke("Explode");
-
-        //        Explode();
-        //    }
-        //}
+                    Explode();
+                }
+                
+            }
+        }
         private IEnumerator CreateExplosions(Vector3 direction)
         {
             //Iterates a for loop for every unit of distance you want the explosions to cover. In this case, the explosion will reach two meters.
