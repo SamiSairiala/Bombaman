@@ -78,7 +78,7 @@ namespace Bombaman
             {
 
                 //sends out a raycast from the center of the bomb towards
-                RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, .5f, 0), direction,
+                RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, .25f, 0), direction,
                   i, levelMask);
                 //A RaycastHit object holds all the information about what and at which position the Raycast hits -- or doesn't hit.
                
