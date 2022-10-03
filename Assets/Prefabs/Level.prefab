@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7915597844006678893}
   m_Layer: 7
   m_Name: Breakable
-  m_TagString: Untagged
+  m_TagString: Breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -659,9 +659,9 @@ GameObject:
   - component: {fileID: 7428802754434579819}
   - component: {fileID: 7428802754434579816}
   - component: {fileID: 7428802754434579817}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Unbreakable
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

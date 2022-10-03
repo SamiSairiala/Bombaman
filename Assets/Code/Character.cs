@@ -1,9 +1,10 @@
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Bombaman
 {
-    public class Character : MonoBehaviour, IBomb
+    public class Character : MonoBehaviour
     {
         // This script is for now only a place holder
         private Vector2 input;
@@ -13,11 +14,11 @@ namespace Bombaman
         // Adds players input which is binded to "BOMB" to be called through variable.
         private InputAction bomb;
 
-        private bool isDroppingBomb = false;
+        
 
         private IMove mover;
 
-        [SerializeField] private GameObject bombPrefab;
+        
 
         private Transform myTransform;
 
@@ -47,15 +48,15 @@ namespace Bombaman
         private void Update()
         {
             transform.Translate(input * Time.deltaTime);
-            if (bomb.WasPerformedThisFrame() && isDroppingBomb == false)
-            {
-                DropBomb(bombPrefab, myTransform);
-            }
-            if (bomb.WasPerformedThisFrame() && isDroppingBomb == true)
-            {
-                // Added a cooldown to how much bombs you can drop per second.
-                Invoke("ChangeBombStatus", 1f);
-            }
+            //if (bomb.WasPerformedThisFrame() && isDroppingBomb == false)
+            //{
+            //    DropBomb(bombPrefab, myTransform);
+            //}
+            //if (bomb.WasPerformedThisFrame() && isDroppingBomb == true)
+            //{
+            //    // Added a cooldown to how much bombs you can drop per second.
+            //    Invoke("ChangeBombStatus", 1f);
+            //}
         }
 
         public void Move(InputAction.CallbackContext context)
@@ -65,33 +66,23 @@ namespace Bombaman
             mover.Move(input);
         }
 
-        public void DropBomb(GameObject BombPrefab, Transform DroppersTransform)
-        {
+        //public void DropBomb(GameObject BombPrefab, Transform DroppersTransform)
+        //{
             
-            if (bombPrefab)
-            {
-                // Snaps bombs to "grid" and also spawns them.
-                Instantiate(BombPrefab, new Vector3(Mathf.RoundToInt(DroppersTransform.position.x), Mathf.RoundToInt(DroppersTransform.position.y), BombPrefab.transform.position.y), BombPrefab.transform.rotation);
-                // Adds a true boolean to stop players from dropping multiple bombs per frame.
-                isDroppingBomb = true;
-            }
-        }
+        //    if (bombPrefab)
+        //    {
+        //        // Snaps bombs to "grid" and also spawns them.
+        //        Instantiate(BombPrefab, new Vector3(Mathf.RoundToInt(DroppersTransform.position.x), Mathf.RoundToInt(DroppersTransform.position.y), BombPrefab.transform.position.y), BombPrefab.transform.rotation);
+        //        // Adds a true boolean to stop players from dropping multiple bombs per frame.
+        //        isDroppingBomb = true;
+        //    }
+        //}
 
-        public void ExplodeTimer(float timer)
-        {
-            
-        }
+        
 
         // Added a cooldown to how much bombs you can drop per second.
-        private void ChangeBombStatus()
-        {
-            isDroppingBomb = false;
-        }
-
-        public void ExplosionSize(int Size)
-        {
-            
-        }
+        
+        
 
         //public void DropBomb()
         //{
