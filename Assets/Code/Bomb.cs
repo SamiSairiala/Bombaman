@@ -1,8 +1,10 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 //using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 namespace Bombaman
 {
@@ -87,9 +89,20 @@ namespace Bombaman
                 //A RaycastHit object holds all the information about what and at which position the Raycast hits -- or doesn't hit.
                
                 //If the raycast doesn't hit anything then it's a free space.
-                if (!hit.collider)
+                if (hit.transform.gameObject.tag.ToString() != "Wall")
                 {
                     //Spawns an explosion at the position the raycast checked.
+                    Instantiate(explosionPrefab, transform.position + (i * direction),
+                      explosionPrefab.transform.rotation);
+                    
+                }
+                if (hit.transform.gameObject.tag.ToString() == "Breakable")
+                {
+
+                    Tilemap tilemap = hit.transform.gameObject.GetComponent<Tilemap>();
+                    Vector3Int hitpos = tilemap.WorldToCell(new Vector3Int((int)hit.transform.position.x, (int)hit.transform.position.y));
+                    tilemap.SetTile(hitpos, null);
+                    Debug.Log(hit.transform.position.y);
                     Instantiate(explosionPrefab, transform.position + (i * direction),
                       explosionPrefab.transform.rotation);
                     
