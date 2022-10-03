@@ -14,6 +14,8 @@ namespace Bombaman
         public LayerMask levelMask;
         public bool exploded = false;
 
+        [SerializeField] private Tilemap Desctructible;
+
         // TODO: When we have bombs change collider type
         [SerializeField]private CapsuleCollider2D collider;
 
@@ -25,8 +27,15 @@ namespace Bombaman
             
             Invoke("Explode", 3f);
             Invoke("EnableCollider", 0.4f);
+            Debug.Log(LayerMask.NameToLayer("Walls"));
+            Debug.Log(LayerMask.NameToLayer("Blocks"));
             
 
+        }
+
+        private void Awake()
+        {
+            levelMask = LayerMask.GetMask("Default", "Walls", "Blocks");
         }
 
         private void EnableCollider()
@@ -84,30 +93,31 @@ namespace Bombaman
             {
 
                 //sends out a raycast from the center of the bomb towards
-                RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, .25f, 0), direction,
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, direction,
                   i, levelMask);
                 //A RaycastHit object holds all the information about what and at which position the Raycast hits -- or doesn't hit.
-               
-                //If the raycast doesn't hit anything then it's a free space.
-                if (hit.transform.gameObject.tag.ToString() != "Wall")
+
+                // If the raycast doesn't hit anything then it's a free space.
+                if (hit.transform.gameObject.layer != 6)
                 {
+                    
                     //Spawns an explosion at the position the raycast checked.
                     Instantiate(explosionPrefab, transform.position + (i * direction),
                       explosionPrefab.transform.rotation);
-                    
+
                 }
-                if (hit.transform.gameObject.tag.ToString() == "Breakable")
+                if (hit.transform.gameObject.layer == 7)
                 {
 
-                    Tilemap tilemap = hit.transform.gameObject.GetComponent<Tilemap>();
-                    Vector3Int hitpos = tilemap.WorldToCell(new Vector3Int((int)hit.transform.position.x, (int)hit.transform.position.y));
-                    tilemap.SetTile(hitpos, null);
-                    Debug.Log(hit.transform.position.y);
+                    Tilemap tilemap = hit.collider.GetComponent<Tilemap>();
+                    Vector3Int tilePos = tilemap.WorldToCell(hit.point);
+                    tilemap.SetTile(tilePos, null);
+                    Debug.Log($"Position of tile removed: x:{tilePos.x} y:{tilePos.y} z:{tilePos.z}");
                     Instantiate(explosionPrefab, transform.position + (i * direction),
                       explosionPrefab.transform.rotation);
-                    
+
                 }
-                else //The raycast hits a block.
+                if(hit.transform.gameObject.layer == 6)
                 { //Once the raycast hits a block, it breaks out of the for loop. This ensures the explosion can't jump over walls.
                     
                     break;
