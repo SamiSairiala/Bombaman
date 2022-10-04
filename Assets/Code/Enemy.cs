@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Bombaman
 {
-    public class Enemy : MonoBehaviour
+    public class Enemy : MonoBehaviour, IDamageable
     {
 
         private IMove mover;
@@ -15,9 +15,12 @@ namespace Bombaman
         private Vector2 previousDirection;
 
         [SerializeField] private float Speed = 1;
+        [SerializeField] private float MaxHealth = 1;
 
 
         GameObject target;
+
+        public float Health { get; set; }
 
         // Start is called before the first frame update
         void Start()
@@ -34,7 +37,7 @@ namespace Bombaman
             }
 
             raycastLayers = LayerMask.GetMask();
-
+            Health = MaxHealth;
         }
 
         private void FixedUpdate()
@@ -102,6 +105,17 @@ namespace Bombaman
             float fixY = Mathf.Abs(transform.position.y - Mathf.Floor(transform.position.y));
             
             return fixX < fixSpeed && fixY < fixSpeed;
+        }
+
+        public void TakeDamage(float damageAmount)
+        {
+            this.Health -= damageAmount;
+            if (this.Health < 0) Death();
+        }
+
+        public void Death()
+        {
+            Destroy(gameObject);
         }
     }
 }
