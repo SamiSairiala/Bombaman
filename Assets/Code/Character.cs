@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 namespace Bombaman
 {
-    public class Character : MonoBehaviour
+    public class Character : MonoBehaviour, IDamageable
     {
         // This script is for now only a place holder
         private Vector2 input;
@@ -24,6 +24,10 @@ namespace Bombaman
 
         [SerializeField] private float Speed;
 
+        public float Health { get; set; }
+
+        [SerializeField] private float health = 1f;
+
         // Start is called before the first frame update
         private void Start()
         {
@@ -33,6 +37,8 @@ namespace Bombaman
             mover.Setup(Speed);
 
             myTransform = gameObject.transform;
+
+            Health = health;
         }
 
         private void Awake()
@@ -48,15 +54,7 @@ namespace Bombaman
         private void Update()
         {
             transform.Translate(input * Time.deltaTime);
-            //if (bomb.WasPerformedThisFrame() && isDroppingBomb == false)
-            //{
-            //    DropBomb(bombPrefab, myTransform);
-            //}
-            //if (bomb.WasPerformedThisFrame() && isDroppingBomb == true)
-            //{
-            //    // Added a cooldown to how much bombs you can drop per second.
-            //    Invoke("ChangeBombStatus", 1f);
-            //}
+            
         }
 
         public void Move(InputAction.CallbackContext context)
@@ -66,9 +64,38 @@ namespace Bombaman
             mover.Move(input);
         }
 
+        public void TakeDamage(float damageAmount)
+        {
+            health -= damageAmount;
+            if(health == 0)
+            {
+                Death();
+            }
+            
+        }
+
+        
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if(collision.gameObject.layer == LayerMask.NameToLayer("Explosion"))
+            {
+                float damage = FindObjectOfType<Explosion>().Damage;
+                TakeDamage(damage);
+            }
+        }
+
+        public void Death()
+        {
+            enabled = false;
+            GetComponent<BombController>().enabled = false;
+            Destroy(gameObject);
+        }
+
+
+
         //public void DropBomb(GameObject BombPrefab, Transform DroppersTransform)
         //{
-            
+
         //    if (bombPrefab)
         //    {
         //        // Snaps bombs to "grid" and also spawns them.
@@ -78,11 +105,11 @@ namespace Bombaman
         //    }
         //}
 
-        
+
 
         // Added a cooldown to how much bombs you can drop per second.
-        
-        
+
+
 
         //public void DropBomb()
         //{
