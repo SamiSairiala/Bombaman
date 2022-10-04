@@ -33,7 +33,8 @@ namespace Bombaman
                 Debug.LogError("Can't find Mover (IMove interface");
             }
 
-            raycastLayers = LayerMask.GetMask("Default", "Walls", "Blocks");
+            raycastLayers = LayerMask.GetMask();
+
         }
 
         private void FixedUpdate()
