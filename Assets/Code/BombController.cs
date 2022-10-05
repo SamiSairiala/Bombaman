@@ -36,6 +36,16 @@ namespace Bombaman
             
             // Take players transfrom.
             myTransform = gameObject.transform;
+
+            Grid grid = FindObjectOfType<Grid>();
+            Tilemap[] tilemap = grid.GetComponentsInChildren<Tilemap>();
+            foreach (Tilemap tm in tilemap)
+            {
+                if (tm.gameObject.layer == 10)
+                {
+                    BreakableTiles = tm;
+                }
+            }
         }
 
         // Update is called once per frame
@@ -65,7 +75,7 @@ namespace Bombaman
 
             yield return new WaitForSeconds(BombFuse); // How long till bomb explodes.
 
-            // Below this was in it's own method mover here for chaining the explosions.
+            // Below this was in it's own method moved here for chaining the explosions.
 
             position = bomb.transform.position; // Put the bomb in to it's own transfrom so it can be kicked.
             position.x = Mathf.Round(position.x);
