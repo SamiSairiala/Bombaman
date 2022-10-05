@@ -67,7 +67,7 @@ namespace Bombaman
         public void TakeDamage(float damageAmount)
         {
             health -= damageAmount;
-            if(health == 0)
+            if(health <= 0)
             {
                 Death();
             }
@@ -75,14 +75,7 @@ namespace Bombaman
         }
 
         
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            if(collision.gameObject.layer == LayerMask.NameToLayer("Explosion"))
-            {
-                float damage = FindObjectOfType<Explosion>().Damage;
-                TakeDamage(damage);
-            }
-        }
+        
 
         public void Death()
         {

@@ -23,18 +23,29 @@ namespace Bombaman
 
         [Header("Destructible")]
         [SerializeField] private Tilemap BreakableTiles;
-        [SerializeField] private Destructible destructiblePrefab;
+        [SerializeField] private Destructible destructiblePrefab; // This is here if we want to animate the breakable block
 
         [SerializeField] private GameObject BombPrefab;
 
-        public float BombFuse = 3f;
+        public float BombFuse = 3f; // how long til the bomb explodes.
         // Start is called before the first frame update
         void Start()
         {
             // Adds players input which is binded to "BOMB" to be called through variable.
             bomb = playerInput.actions["Bomb"];
             
+            // Take players transfrom.
             myTransform = gameObject.transform;
+
+            Grid grid = FindObjectOfType<Grid>();
+            Tilemap[] tilemap = grid.GetComponentsInChildren<Tilemap>();
+            foreach (Tilemap tm in tilemap)
+            {
+                if (tm.gameObject.layer == 10)
+                {
+                    BreakableTiles = tm;
+                }
+            }
         }
 
         // Update is called once per frame
@@ -62,21 +73,56 @@ namespace Bombaman
             // Snaps bombs to "grid" and also spawns them
             GameObject bomb = Instantiate(BombPrefab, position, Quaternion.identity);
 
-            yield return new WaitForSeconds(3f); // How long till bomb explodes.
+            yield return new WaitForSeconds(BombFuse); // How long till bomb explodes.
 
-            position = bomb.transform.position;
+            // Below this was in it's own method moved here for chaining the explosions.
+
+            position = bomb.transform.position; // Put the bomb in to it's own transfrom so it can be kicked.
             position.x = Mathf.Round(position.x);
             position.y = Mathf.Round(position.y);
 
             Explosion explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
             Destroy(explosion.gameObject, explosionDuration);
             explosion.DestroyAfter(explosionDuration); // Destroy explosion prefab.
+
+            if(bomb != null)
+            {
+                StartExplosion(position, bomb);
+            }
+            
+
+            #region Moved to own method.
+            //position = bomb.transform.position; // Put the bomb in to it's own transfrom so it can be kicked.
+            //position.x = Mathf.Round(position.x);
+            //position.y = Mathf.Round(position.y);
+
+
+
+            //Explosion explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
+            //Destroy(explosion.gameObject, explosionDuration);
+            //explosion.DestroyAfter(explosionDuration); // Destroy explosion prefab.
+            //Explode(position, Vector2.up, explosionRadius); // Directions in which to spawn explosions.
+            //Explode(position, Vector2.down, explosionRadius);
+            //Explode(position, Vector2.left, explosionRadius);
+            //Explode(position, Vector2.right, explosionRadius);
+
+            //Destroy(bomb.gameObject);
+            #endregion
+        }
+
+        public void StartExplosion(Vector2 position, GameObject bomb)
+        {
+          
             Explode(position, Vector2.up, explosionRadius); // Directions in which to spawn explosions.
             Explode(position, Vector2.down, explosionRadius);
             Explode(position, Vector2.left, explosionRadius);
             Explode(position, Vector2.right, explosionRadius);
 
-            Destroy(bomb.gameObject);
+            if(bomb != null)
+            {
+                Destroy(bomb.gameObject);
+            }
+            
         }
 
         /// <summary>
@@ -87,7 +133,8 @@ namespace Bombaman
         /// <param name="lenght">how big is the radius of the bomb eg. 1 is 1 tile in all directions.</param>
         private void Explode(Vector2 position, Vector2 direction, int lenght)
         {
-            if(lenght <= 0)
+            // This method goes from up to down and decreases lenght variable everytime. Lenght variable here is explosions radius.
+            if(lenght <= 0) 
             {
                 return;
             }
@@ -111,7 +158,7 @@ namespace Bombaman
         {
             if (ExitBomb.gameObject.layer == LayerMask.NameToLayer("Bomb"))
             {
-                ExitBomb.isTrigger = false;
+                ExitBomb.isTrigger = false; // Disables trigger so player can be blocked by bomb after dropping it and walking away from it.
             }
         }
 
