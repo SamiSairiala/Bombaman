@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 7036326399902774964}
   - component: {fileID: 7036326399902774965}
   - component: {fileID: 7036326399902774966}
+  - component: {fileID: 1265948937830003069}
+  - component: {fileID: 7375906405084757987}
+  - component: {fileID: 9079714284278578022}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -29,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 7036326399902774967}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4, y: 3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -118,7 +121,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -146,3 +149,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6355ce6b15b74a74b8aba67e4b48fdd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1265948937830003069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7036326399902774967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49ecfa19ccc66aa4fbeee508f8426393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolType: 0
+  patrolPoints:
+  - {x: -8, y: -5}
+  - {x: 8, y: -5}
+  - {x: 8, y: 0}
+--- !u!114 &7375906405084757987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7036326399902774967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f118b9005f03724f8b17f31aac2bc9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9079714284278578022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7036326399902774967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d189435e7c100174794706be77b3b9b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrol: {fileID: 1265948937830003069}
+  pathfinder: {fileID: 7375906405084757987}
+  Speed: 1
+  MaxHealth: 1

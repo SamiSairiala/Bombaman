@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.XR;
@@ -8,13 +9,20 @@ namespace Bombaman.AI.Pathfinding
 {
     public class PathfindingNode
     {
-        public Vector2Int Location { get; private set; }
-        public bool walkable { get; set; }
-        public float G { get; private set; }
-        public float H { get; private set;  }
-        public float F { get { return this.G + this.H; } }
-        public NodeState state { get; private set; }
+        public Point Location;
+        public int G;
+        public int H;
+        public int F { get { return this.G + this.H; } }
         public PathfindingNode parentNode { get; set; }
+
+        public PathfindingNode(int x, int y)
+        {
+            this.Location = new Point(x, y);
+        }
+        public PathfindingNode(Point p)
+        {
+            this.Location = p;
+        }
 
     }
 }
