@@ -65,6 +65,8 @@ namespace Bombaman
 
             yield return new WaitForSeconds(BombFuse); // How long till bomb explodes.
 
+            // Below this was in it's own method mover here for chaining the explosions.
+
             position = bomb.transform.position; // Put the bomb in to it's own transfrom so it can be kicked.
             position.x = Mathf.Round(position.x);
             position.y = Mathf.Round(position.y);
@@ -73,7 +75,11 @@ namespace Bombaman
             Destroy(explosion.gameObject, explosionDuration);
             explosion.DestroyAfter(explosionDuration); // Destroy explosion prefab.
 
-            StartExplosion(position, bomb);
+            if(bomb != null)
+            {
+                StartExplosion(position, bomb);
+            }
+            
 
             #region Moved to own method.
             //position = bomb.transform.position; // Put the bomb in to it's own transfrom so it can be kicked.
@@ -102,7 +108,11 @@ namespace Bombaman
             Explode(position, Vector2.left, explosionRadius);
             Explode(position, Vector2.right, explosionRadius);
 
-            Destroy(bomb.gameObject);
+            if(bomb != null)
+            {
+                Destroy(bomb.gameObject);
+            }
+            
         }
 
         /// <summary>
