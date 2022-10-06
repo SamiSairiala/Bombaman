@@ -12,12 +12,7 @@ namespace Bombaman.AI
         [SerializeField]
         private Vector2[] patrolPoints;
 
-        private int i = -1;
-
-        private void Start()
-        {
-            
-        }
+        private int i = -1; //start at -1 because getNextPoint adds 1 at start, because otherwise return would always be called first.
 
         private void Awake()
         {
@@ -37,6 +32,7 @@ namespace Bombaman.AI
             }
         }
 
+        #region Gizmo Stuff
         //draw gizmo for patrol
         private void OnDrawGizmosSelected()
         {
@@ -100,5 +96,6 @@ namespace Bombaman.AI
                 patrolPoints = tempPoints;
             }
         }
+        #endregion
     }
 }
