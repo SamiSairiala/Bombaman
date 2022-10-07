@@ -18,7 +18,7 @@ namespace Bombaman
 
         public void Move(Vector2 direction)
         {
-            Movement = direction;
+            Movement = direction * Speed;
         }
 
         public void Setup(float speed)
@@ -28,7 +28,7 @@ namespace Bombaman
 
         private void FixedUpdate()
         {
-            // TODO: Fix this!
+            
             rigidbody.velocity = new Vector2(Movement.x * Speed , Movement.y * Speed);
         }
 

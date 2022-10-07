@@ -16,6 +16,8 @@ namespace Bombaman
         private Transform myTransform;
         private bool isDroppingBomb = false;
 
+        private bool hasExploded = false;
+
         [Header("Explosion")]
         [SerializeField] private Explosion explosionPrefab; // The prefab must have explosion script attached to it.
         [SerializeField] float explosionDuration = 1f; // How long the explosion lasts.
@@ -26,6 +28,8 @@ namespace Bombaman
         [SerializeField] private Destructible destructiblePrefab; // This is here if we want to animate the breakable block
 
         [SerializeField] private GameObject BombPrefab;
+
+        private bool Exploded = false;
 
         public float BombFuse = 3f; // how long til the bomb explodes.
         // Start is called before the first frame update
@@ -64,6 +68,7 @@ namespace Bombaman
 
         private IEnumerator PlaceBomb()
         {
+            Exploded = false;
             Vector2 position = transform.position;
             position = transform.position;
 
@@ -73,17 +78,25 @@ namespace Bombaman
             // Snaps bombs to "grid" and also spawns them
             GameObject bomb = Instantiate(BombPrefab, position, Quaternion.identity);
 
-            yield return new WaitForSeconds(BombFuse); // How long till bomb explodes.
+            if (bomb != null)
+            {
+                yield return new WaitForSeconds(BombFuse); // How long till bomb explodes.
 
             // Below this was in it's own method moved here for chaining the explosions.
+                if(Exploded == false) { 
+                position = bomb.transform.position; // Put the bomb in to it's own transfrom so it can be kicked.
+                position.x = Mathf.Round(position.x);
+                position.y = Mathf.Round(position.y);
+                }
+                Explosion explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
+                Destroy(explosion.gameObject, explosionDuration);
+                explosion.DestroyAfter(explosionDuration); // Destroy explosion prefab.
+            }
+            
+                
+            
 
-            position = bomb.transform.position; // Put the bomb in to it's own transfrom so it can be kicked.
-            position.x = Mathf.Round(position.x);
-            position.y = Mathf.Round(position.y);
-
-            Explosion explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
-            Destroy(explosion.gameObject, explosionDuration);
-            explosion.DestroyAfter(explosionDuration); // Destroy explosion prefab.
+            
 
             if(bomb != null)
             {
@@ -112,12 +125,12 @@ namespace Bombaman
 
         public void StartExplosion(Vector2 position, GameObject bomb)
         {
-          
+            
             Explode(position, Vector2.up, explosionRadius); // Directions in which to spawn explosions.
             Explode(position, Vector2.down, explosionRadius);
             Explode(position, Vector2.left, explosionRadius);
             Explode(position, Vector2.right, explosionRadius);
-
+            Exploded = true;
             if(bomb != null)
             {
                 Destroy(bomb.gameObject);
