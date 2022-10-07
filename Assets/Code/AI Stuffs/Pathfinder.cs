@@ -40,13 +40,8 @@ namespace Bombaman
 
         public PathfindingNode GetPath(Point start, Point end)
         {
-            walkable = updatedTerrain();
-
-            Grid grid = FindObjectOfType<Grid>();
-            offset = new Vector2Int(walkable.GetLength(0), walkable.GetLength(1));
-            offset /= 2;
-            offset -= new Vector2Int(Mathf.RoundToInt(grid.transform.position.x), Mathf.RoundToInt(grid.transform.position.y));
-            offset.x -= 1;
+            UpdateOffset();
+            
             Debug.Log($"Start: {start}, End: {end}, offset: {offset}");
 
             PathfindingNode current = null;
@@ -102,6 +97,7 @@ namespace Bombaman
         private void OnDrawGizmosSelected()
         {
             if (walkable == null) updatedTerrain();
+            UpdateOffset();
             PathfindingNode tempPath = currentPath;
             Vector3 tempLoc;
             if(tempPath != null)
@@ -150,6 +146,17 @@ namespace Bombaman
             };
 
             return result.Where(l => !map[l.Location.X + offset.x, l.Location.Y + offset.y]).ToList();
+        }
+
+        private void UpdateOffset()
+        {
+            walkable = updatedTerrain();
+
+            Grid grid = FindObjectOfType<Grid>();
+            offset = new Vector2Int(walkable.GetLength(0), walkable.GetLength(1));
+            offset /= 2;
+            offset -= new Vector2Int(Mathf.RoundToInt(grid.transform.position.x), Mathf.RoundToInt(grid.transform.position.y));
+            offset.x -= 1;
         }
 
         /// <summary>
