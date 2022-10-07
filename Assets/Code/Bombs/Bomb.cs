@@ -14,11 +14,14 @@ namespace Bombaman
         private bool hit = false;
         private BombController controller;
 
+        [SerializeField] private float kickForce = 1f; // How hard players can kick it. 
+
+        private Rigidbody2D rigidbody;
         private void Awake()
         {
             hit = false;
             controller = FindObjectOfType<BombController>();
-            
+            rigidbody = GetComponent<Rigidbody2D>();
         }
         #region old bomb script.
         //[SerializeField] private GameObject explosionPrefab;
@@ -152,6 +155,15 @@ namespace Bombaman
                 
 
                 
+            }
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if(collision.transform.name == "Player" && collision.transform.GetComponent<Character>().kicking) // Checks if player is kicking
+            {
+                Vector3 direction = (collision.transform.position - transform.position).normalized;
+                rigidbody.AddForce(-direction * kickForce, ForceMode2D.Impulse); // To make it move less edit kickForce.
             }
         }
 

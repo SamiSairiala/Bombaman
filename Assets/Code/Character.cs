@@ -14,9 +14,13 @@ namespace Bombaman
         // Adds players input which is binded to "BOMB" to be called through variable.
         private InputAction bomb;
 
-        
+        private InputAction kick;
 
         private IMove mover;
+
+        public bool kicking = false;
+
+        float animationKickDuration = 1f;
 
         
 
@@ -39,6 +43,8 @@ namespace Bombaman
             myTransform = gameObject.transform;
 
             Health = health;
+
+            kick = playerInput.actions["Kick"];
         }
 
         private void Awake()
@@ -54,7 +60,24 @@ namespace Bombaman
         private void Update()
         {
             transform.Translate(input * Time.deltaTime);
-            
+            if (kick.WasPerformedThisFrame()) // This is only here for the time being
+            {
+                Kick();
+            }
+        }
+
+        private void Kick()
+        {
+            if (!kicking)
+            {
+                kicking = true;
+                Invoke("StopKicking", animationKickDuration);
+            }
+        }
+
+        private void StopKicking()
+        {
+            kicking = false;
         }
 
         public void Move(InputAction.CallbackContext context)
