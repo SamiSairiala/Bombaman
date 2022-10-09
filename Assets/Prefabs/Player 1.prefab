@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5543069182381772236}
   - component: {fileID: 5543069182381772237}
   - component: {fileID: 5543069182381772242}
+  - component: {fileID: 4137558741031423235}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -135,6 +136,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 73a45fc0-ed11-435b-b93d-05f164f937d1
     m_ActionName: Player/Bomb[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 40aa650b-12e5-4d87-be23-78daa14f0851
+    m_ActionName: Player/Kick[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -153,6 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInput: {fileID: 5543069182381772233}
+  kicking: 0
   Speed: 2
   health: 1
 --- !u!114 &5543069182381772239
@@ -237,3 +243,18 @@ MonoBehaviour:
   destructiblePrefab: {fileID: 0}
   BombPrefab: {fileID: 4144720948872345327, guid: 81bd9be58c512c440bfd2550b8737d0a, type: 3}
   BombFuse: 3
+--- !u!114 &4137558741031423235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5543069182381772234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98d6575870e382343add05c046809859, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHealth: 0
+  maxHealth: 10
+  startHealth: 10

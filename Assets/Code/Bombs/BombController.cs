@@ -18,6 +18,8 @@ namespace Bombaman
 
         private bool hasExploded = false;
 
+        private Grid grid;
+
         [Header("Explosion")]
         [SerializeField] private Explosion explosionPrefab; // The prefab must have explosion script attached to it.
         [SerializeField] float explosionDuration = 1f; // How long the explosion lasts.
@@ -50,6 +52,7 @@ namespace Bombaman
                     BreakableTiles = tm;
                 }
             }
+            grid = FindObjectOfType<Grid>();
         }
 
         // Update is called once per frame
@@ -88,7 +91,7 @@ namespace Bombaman
                 position.x = Mathf.Round(position.x);
                 position.y = Mathf.Round(position.y);
                 }
-                Explosion explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
+                Explosion explosion = Instantiate(explosionPrefab, position, Quaternion.identity); // 
                 Destroy(explosion.gameObject, explosionDuration);
                 explosion.DestroyAfter(explosionDuration); // Destroy explosion prefab.
             }
