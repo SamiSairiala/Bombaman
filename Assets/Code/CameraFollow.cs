@@ -24,8 +24,13 @@ namespace Bombaman
 
         private void Update()
         {
+            if(target != null)
+            {
+
+           
             Vector3 targetPosition = target.TransformPoint(new Vector3(0, 0, zOffset));
             transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, snaptoTargetTime);
+            }
         }
     }
 }

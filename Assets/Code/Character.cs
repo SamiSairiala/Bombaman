@@ -22,7 +22,14 @@ namespace Bombaman
 
         float animationKickDuration = 1f;
 
-        
+        [SerializeField]
+        private int playerIndex = 0;
+
+        private CharacterController controller;
+
+        public Vector2 startPosition;
+
+        public int playerID;
 
         private Transform myTransform;
 
@@ -45,6 +52,13 @@ namespace Bombaman
             Health = health;
 
             kick = playerInput.actions["Kick"];
+
+            transform.position = startPosition;
+        }
+
+        public int GetPlayerIndex()
+        {
+            return playerIndex;
         }
 
         private void Awake()
@@ -54,6 +68,7 @@ namespace Bombaman
             {
                 Debug.LogError("Cant find a component which implements the IMove interface!");
             }
+            controller = GetComponent<CharacterController>();
         }
 
         // Update is called once per frame
@@ -62,7 +77,7 @@ namespace Bombaman
             transform.Translate(input * Time.deltaTime);
             if (kick.WasPerformedThisFrame()) // This is only here for the time being
             {
-                Kick();
+                 Kick();
             }
         }
 
@@ -82,6 +97,7 @@ namespace Bombaman
 
         public void Move(InputAction.CallbackContext context)
         {
+            
             // Reads the users input using inputsystem callback.
             input = context.ReadValue<Vector2>();
             mover.Move(input);
