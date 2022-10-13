@@ -29,11 +29,11 @@ namespace Bombaman
 
         public Vector2 startPosition;
 
-        public int playerID;
+        public int playerID; // For multiplayer
 
         private Transform myTransform;
 
-        [SerializeField] private float Speed;
+        public float Speed; // Run speed
 
         public float Health { get; set; }
 
@@ -79,6 +79,7 @@ namespace Bombaman
             {
                  Kick();
             }
+            mover.Setup(Speed);
         }
 
         private void Kick()
@@ -118,8 +119,10 @@ namespace Bombaman
 
         public void Death()
         {
+            // TODO: Declare winner in somewhere for multiplayer
             enabled = false;
             GetComponent<BombController>().enabled = false;
+            Debug.Log("Player " + playerID + " Died!");
             Destroy(gameObject);
         }
 

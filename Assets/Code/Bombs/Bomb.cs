@@ -162,6 +162,7 @@ namespace Bombaman
         {
             if(collision.transform.name == "Player" && collision.transform.GetComponent<Character>().kicking) // Checks if player is kicking
             {
+                // TODO: BLOCK AND UNBLOCK POSITION ATM PLAYER CAN JUST RUN INTO THE BOMB
                 Vector3 direction = (collision.transform.position - transform.position).normalized;
                 rigidbody.AddForce(-direction * kickForce, ForceMode2D.Impulse); // To make it move less edit kickForce.
             }

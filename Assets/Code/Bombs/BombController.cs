@@ -23,7 +23,7 @@ namespace Bombaman
         [Header("Explosion")]
         [SerializeField] private Explosion explosionPrefab; // The prefab must have explosion script attached to it.
         [SerializeField] float explosionDuration = 1f; // How long the explosion lasts.
-        [SerializeField] int explosionRadius = 0; // How big the explosion or how many tiles it spreads in tiles.
+        public int explosionRadius = 1; // How big the explosion or how many tiles it spreads in tiles.
 
         [Header("Destructible")]
         [SerializeField] private Tilemap BreakableTiles;
