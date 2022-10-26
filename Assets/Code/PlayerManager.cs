@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 namespace Bombaman
 {
@@ -9,7 +11,8 @@ namespace Bombaman
     {
 
         public GameObject[] spawnLocations; // Spawn points
-
+        [SerializeField] private TMP_Text Text0Players;
+        [SerializeField] private TMP_Text Text2ndplayer; // Text which has info about how to proceed this is PLACEHOLDER
         private int PlayerCount = 0;
         
         void OnPlayerJoined(PlayerInput playerInput)
@@ -32,10 +35,18 @@ namespace Bombaman
             if(PlayerCount < 2) // Here to "pause" the game to wait for 2nd player.
             {
                 Time.timeScale = 0; // TODO: Add UI to message the players to press any button to join
+                
             }
-            if(PlayerCount == 2) // Resumes game when both players are joined.
+            if (PlayerCount == 1)
+            {
+                Time.timeScale = 0;
+                Text0Players.enabled = false;
+                Text2ndplayer.enabled = true;
+            }
+                if (PlayerCount == 2) // Resumes game when both players are joined.
             {
                 Time.timeScale = 1;
+                Text2ndplayer.enabled = false; // UI to tell players to input something.
             }
             
         }
