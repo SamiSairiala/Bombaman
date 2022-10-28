@@ -11,7 +11,8 @@ namespace Bombaman
         [SerializeField]
         public int maxHealth = 10;
         [SerializeField]
-        private int startHealth = 10;
+        private int startHealth = 1;
+
         private int currentHealth;
         public int CurrentHealth { get { return currentHealth; } private set { currentHealth = Mathf.Clamp(value, minHealth, maxHealth); } } 
 

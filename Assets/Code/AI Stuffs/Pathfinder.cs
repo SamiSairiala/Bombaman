@@ -42,8 +42,6 @@ namespace Bombaman
         {
             UpdateOffset();
             
-            Debug.Log($"Start: {start}, End: {end}, offset: {offset}");
-
             PathfindingNode current = null;
             PathfindingNode startPoint = new PathfindingNode(start);
             PathfindingNode endPoint = new PathfindingNode(end);
