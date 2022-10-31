@@ -18,7 +18,7 @@ namespace Bombaman
         private void Awake()
         {
             int random = Random.Range(0, 2);
-            if (Random.Range(0, 2) == 0)
+            if (random == 0)
             {
                 type = ItemType.BlastRadius;
             }

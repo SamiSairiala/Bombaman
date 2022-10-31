@@ -40,6 +40,8 @@ namespace Bombaman
 
         private bool isMultiplayer = false;
 
+        private SpawnPowerups powerupSpawn;
+
         public float BombFuse = 3f; // how long til the bomb explodes.
         // Start is called before the first frame update
         void Start()
@@ -60,7 +62,7 @@ namespace Bombaman
                 }
             }
             grid = FindObjectOfType<Grid>();
-            
+            powerupSpawn = FindObjectOfType<SpawnPowerups>();
         }
 
         // Update is called once per frame
