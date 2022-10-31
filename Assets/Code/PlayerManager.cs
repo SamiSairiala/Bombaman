@@ -11,9 +11,14 @@ namespace Bombaman
     {
 
         public GameObject[] spawnLocations; // Spawn points
-        [SerializeField] private TMP_Text Text0Players;
+        [SerializeField] private TMP_Text Text0Players; // These are placeholders
         [SerializeField] private TMP_Text Text2ndplayer; // Text which has info about how to proceed this is PLACEHOLDER
+        [SerializeField] private Image BackgroundImage; // PLACEHOLDER
         private int PlayerCount = 0;
+
+        public bool isPaused = false;
+
+        
         
         void OnPlayerJoined(PlayerInput playerInput)
         {
@@ -35,7 +40,7 @@ namespace Bombaman
             if(PlayerCount < 2) // Here to "pause" the game to wait for 2nd player.
             {
                 Time.timeScale = 0; // TODO: Add UI to message the players to press any button to join
-                
+                isPaused = true;
             }
             if (PlayerCount == 1)
             {
@@ -47,8 +52,17 @@ namespace Bombaman
             {
                 Time.timeScale = 1;
                 Text2ndplayer.enabled = false; // UI to tell players to input something.
+                BackgroundImage.enabled = false;
+                isPaused = false;
             }
             
         }
+
+        public void UnPause()
+        {
+            isPaused = false;
+        }
+
+        
     }
 }

@@ -15,8 +15,23 @@ namespace Bombaman
 
         public ItemType type; // Here to select which one the gameobject is from editor.
 
+        private void Awake()
+        {
+            int random = Random.Range(0, 2);
+            if (Random.Range(0, 2) == 0)
+            {
+                type = ItemType.BlastRadius;
+            }
+            else
+            {
+                type = ItemType.SpeedIncrease;
+            }
+
+        }
+
         private void OnItemPickup(GameObject player)
         {
+            
             switch (type)
             {
                 case ItemType.BlastRadius:
@@ -24,7 +39,7 @@ namespace Bombaman
                     break;
 
                 case ItemType.SpeedIncrease:
-                    player.GetComponent<Character>().Speed++;
+                    player.GetComponent<Character>().Speed += 0.5f;
                     break;
             }
         }

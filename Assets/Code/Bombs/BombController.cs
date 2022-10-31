@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.Tilemaps;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace Bombaman
 {
@@ -18,6 +19,8 @@ namespace Bombaman
 
         private bool hasExploded = false;
 
+        private bool isPaused = false;
+
         private Grid grid;
 
         [Header("Explosion")]
@@ -31,7 +34,11 @@ namespace Bombaman
 
         [SerializeField] private GameObject BombPrefab;
 
+        [SerializeField] private PlayerManager playerManager; // Used in multiplayer
+
         private bool Exploded = false;
+
+        private bool isMultiplayer = false;
 
         public float BombFuse = 3f; // how long til the bomb explodes.
         // Start is called before the first frame update
@@ -53,11 +60,13 @@ namespace Bombaman
                 }
             }
             grid = FindObjectOfType<Grid>();
+            
         }
 
         // Update is called once per frame
         void Update()
         {
+            
             if (bomb.WasPerformedThisFrame() && isDroppingBomb == false)
             {
                 StartCoroutine(PlaceBomb());
@@ -68,6 +77,8 @@ namespace Bombaman
                 Invoke("ChangeBombStatus", 1f);
             }
         }
+
+        
 
         private IEnumerator PlaceBomb()
         {
