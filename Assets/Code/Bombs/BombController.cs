@@ -199,6 +199,8 @@ namespace Bombaman
             if(tile != null)
             {
                 BreakableTiles.SetTile(cell, null); // Clears the tile bomb hits.
+                //Debug.Log("Position is " + position);
+                powerupSpawn.SpawnPowerup(position);
             }
         }
 

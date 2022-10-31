@@ -13,36 +13,44 @@ namespace Bombaman
         private int randomRange;
         [SerializeField] private Tilemap BreakableTiles;
         [SerializeField] private Destructible destructiblePrefab;
+        [SerializeField] private Tile PowerUpTile;
 
-        private void Awake()
-        {
-           
-            int randomRange = Random.Range(1, 101);
+		private void Awake()
+		{
             Grid grid = FindObjectOfType<Grid>();
             Tilemap[] tilemap = grid.GetComponentsInChildren<Tilemap>();
             foreach (Tilemap tm in tilemap)
             {
-                if (tm.gameObject.layer == 10)
+                if (tm.gameObject.layer == 10) // Change this if breakable tiles order changes in layers.
                 {
                     BreakableTiles = tm;
                 }
             }
             grid = FindObjectOfType<Grid>();
         }
+
+		
         public void SpawnPowerup(Vector2 position)
         {
-            if (randomRange < 50)
+            int randomRange = Random.Range(1, 101);
+            if (randomRange <= 50)
             {
+                Debug.Log("Spawning");
                 
-                Vector3Int cell = BreakableTiles.WorldToCell(position);
-                TileBase tile = BreakableTiles.GetTile(cell);
+                //Vector3Int cell = BreakableTiles.WorldToCell(position);
+                //TileBase tile = BreakableTiles.GetTile(cell);
+
+                //position.x = cell.x;
+                //position.y = cell.y;
 
                 
-                if (tile != null)
-                {
-                    Instantiate(powerup, transform); // TODO:
-                }
+
+                //BreakableTiles.SetTile(cell, null); // Clears the tile bomb hits.
+                //position = new Vector2(cell.x, cell.y);
+                //Debug.Log(position);
+                Instantiate(powerup, position, Quaternion.identity);
             }
+            return;
         }
     }
 }
