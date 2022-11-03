@@ -203,6 +203,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1092422506, guid: 6e7559dd9c2ae1449a93acf0eef61027, type: 3}
+    - target: {fileID: 5543069182381772235, guid: 59db96775738f8448b77a3006625a0da, type: 3}
+      propertyPath: m_Color.b
+      value: 0.9433962
+      objectReference: {fileID: 0}
+    - target: {fileID: 5543069182381772235, guid: 59db96775738f8448b77a3006625a0da, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9433962
+      objectReference: {fileID: 0}
+    - target: {fileID: 5543069182381772235, guid: 59db96775738f8448b77a3006625a0da, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9433962
+      objectReference: {fileID: 0}
     - target: {fileID: 5543069182381772237, guid: 59db96775738f8448b77a3006625a0da, type: 3}
       propertyPath: m_Size.x
       value: 0.6307368
@@ -227,9 +239,17 @@ PrefabInstance:
       propertyPath: Speed
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5543069182381772238, guid: 59db96775738f8448b77a3006625a0da, type: 3}
+      propertyPath: bombController
+      value: 
+      objectReference: {fileID: 4388893563854228822}
     - target: {fileID: 5543069182381772242, guid: 59db96775738f8448b77a3006625a0da, type: 3}
       propertyPath: BombFuse
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5543069182381772242, guid: 59db96775738f8448b77a3006625a0da, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5543069182381772242, guid: 59db96775738f8448b77a3006625a0da, type: 3}
       propertyPath: BreakableTiles
@@ -267,3 +287,14 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4388893563854228822 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5543069182381772242, guid: 59db96775738f8448b77a3006625a0da, type: 3}
+  m_PrefabInstance: {fileID: 8071729800802222212}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4388893563854228814}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47bc63e7f613d2c4885ac152a1e49397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace Bombaman
 {
@@ -39,6 +40,10 @@ namespace Bombaman
 
         [SerializeField] private float health = 1f;
 
+        [SerializeField] private BombController bombController;
+
+        private bool Loaded = false;
+
         // Start is called before the first frame update
         private void Start()
         {
@@ -63,6 +68,7 @@ namespace Bombaman
 
         private void Awake()
         {
+            
             mover = GetComponent<IMove>();
             if (mover == null)
             {
@@ -80,6 +86,28 @@ namespace Bombaman
                  Kick();
             }
             mover.Setup(Speed);
+            DontDestroyOnLoad(this.gameObject);
+            if (SceneManager.GetActiveScene().name == "2Player" && Loaded == false)
+            {
+                Loaded = true;
+                SpawnPlayers();
+                bombController.enabled = true;
+            }
+            
+        }
+
+
+        public void SpawnPlayers()
+		{
+            Debug.Log("Spawning");
+            if(playerID == 0)
+			{
+                startPosition = GameObject.Find("Spawn1").transform.position;
+            }
+            if(playerID == 1)
+			{
+                startPosition = GameObject.Find("Spawn2").transform.position;
+            }
         }
 
         private void Kick()
@@ -156,5 +184,7 @@ namespace Bombaman
         //        isDroppingBomb = true;
         //    }
         //}
+
+        
     }
 }
