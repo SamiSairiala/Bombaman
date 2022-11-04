@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.Animations;
 
 namespace Bombaman
 {
@@ -20,6 +21,9 @@ namespace Bombaman
         private IMove mover;
 
         public bool kicking = false;
+
+        private bool Player1Alive = true;
+        private bool Player2Alive = true;
 
         float animationKickDuration = 1f;
 
@@ -44,6 +48,12 @@ namespace Bombaman
 
         private bool Loaded = false;
 
+        [Header("Animations")]
+        [SerializeField] private Animator animator;
+        [SerializeField] private AnimationClip KickingClip;
+
+        private GameSystem gameSystem;
+
         // Start is called before the first frame update
         private void Start()
         {
@@ -59,6 +69,10 @@ namespace Bombaman
             kick = playerInput.actions["Kick"];
 
             transform.position = startPosition;
+
+           
+
+            animator = GetComponent<Animator>();
         }
 
         public int GetPlayerIndex()
@@ -86,27 +100,42 @@ namespace Bombaman
                  Kick();
             }
             mover.Setup(Speed);
-            DontDestroyOnLoad(this.gameObject);
+
+            if(SceneManager.GetActiveScene().name == "MainMenu")
+			{
+                DontDestroyOnLoad(this.gameObject);
+            }
+            
+
+
             if (SceneManager.GetActiveScene().name == "2Player" && Loaded == false)
             {
                 Loaded = true;
                 SpawnPlayers();
                 bombController.enabled = true;
+                gameSystem = FindObjectOfType<GameSystem>();
             }
-            
+            if (SceneManager.GetActiveScene().name == "1Player" && Loaded == false) //Singleplayer
+            {
+                Loaded = true;
+                
+                bombController.enabled = true;
+            }
         }
 
 
         public void SpawnPlayers()
 		{
             Debug.Log("Spawning");
-            if(playerID == 0)
-			{
-                startPosition = GameObject.Find("Spawn1").transform.position;
-            }
             if(playerID == 1)
 			{
-                startPosition = GameObject.Find("Spawn2").transform.position;
+                transform.position = GameObject.Find("Spawn1").transform.position;
+                startPosition = GameObject.FindGameObjectWithTag("Spawn1").transform.position;
+            }
+            if(playerID == 2)
+			{
+                transform.position = GameObject.Find("Spawn2").transform.position; // TODO: FIX THESE
+                startPosition = GameObject.FindGameObjectWithTag("Spawn2").transform.position;
             }
         }
 
@@ -114,6 +143,7 @@ namespace Bombaman
         {
             if (!kicking)
             {
+                animator.SetBool("Kicking", true);
                 kicking = true;
                 Invoke("StopKicking", animationKickDuration);
             }
@@ -121,6 +151,7 @@ namespace Bombaman
 
         private void StopKicking()
         {
+            animator.SetBool("Kicking", false);
             kicking = false;
         }
 
@@ -151,6 +182,19 @@ namespace Bombaman
             enabled = false;
             GetComponent<BombController>().enabled = false;
             Debug.Log("Player " + playerID + " Died!");
+
+            if (SceneManager.GetActiveScene().name == "2Player")
+            {
+                if(playerID == 1)
+				{
+                    gameSystem.Player1Alive = false;
+				}
+                if(playerID == 2)
+				{
+                    gameSystem.Player2Alive = false;
+				}
+            }
+
             Destroy(gameObject);
         }
 

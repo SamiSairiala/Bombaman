@@ -29,7 +29,7 @@ namespace Bombaman
             // Set the player ID, add one to the index to start at Player 1
             playerInput.gameObject.GetComponent<Character>().playerID = playerInput.playerIndex + 1; // Player 1 = 0, Player 2 = 1 etc.
 
-            text.text = ("Player " + playerInput.playerIndex + " Joined");
+            text.text = ("Player " + playerInput.playerIndex  + " Joined");
             PlayerCount++;
 
             
@@ -47,8 +47,8 @@ namespace Bombaman
         {
             if(PlayerCount == 1 && Ready == true)
 			{
-                // LOAD SINGLEPLAYER
-			}
+                SceneManager.LoadScene("1Player");  // LOAD SINGLEPLAYER
+            }
             if (PlayerCount == 2 && Ready == true) 
             {
                 SceneManager.LoadScene("2Player"); // LOAD 2 PLAYER SCENE.
