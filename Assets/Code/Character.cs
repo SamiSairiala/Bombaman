@@ -161,6 +161,7 @@ namespace Bombaman
             // Reads the users input using inputsystem callback.
             input = context.ReadValue<Vector2>();
             mover.Move(input);
+            
         }
 
         public void TakeDamage(float damageAmount)

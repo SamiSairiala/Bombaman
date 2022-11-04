@@ -10,6 +10,8 @@ namespace Bombaman
 
         private Vector2 Movement;
 
+        [SerializeField]private Animator animator;
+
         public float Speed
         {
             get;
@@ -19,6 +21,14 @@ namespace Bombaman
         public void Move(Vector2 direction)
         {
             Movement = direction * Speed;
+            if(gameObject.tag == "Player")
+			{
+                animator = GetComponent<Animator>();
+                animator.SetFloat("Horizontal", Movement.x);
+                animator.SetFloat("Vertical", Movement.y);
+                animator.SetFloat("Speed", Movement.sqrMagnitude);
+                
+            }
         }
 
         public void Setup(float speed)
@@ -35,7 +45,11 @@ namespace Bombaman
         // Start is called before the first frame update
         void Start()
         {
-        
+            if (gameObject.tag == "Player")
+            {
+                animator = GetComponent<Animator>();
+                
+            }
         }
 
         private void Awake()

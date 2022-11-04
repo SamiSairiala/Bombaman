@@ -28,21 +28,33 @@ namespace Bombaman
             if(SceneManager.GetActiveScene().name == "2Player" && Player1Alive == false)
 			{
                 textWinner.enabled = true;
-                textWinner.text = ("Player 2 is a winner");
+                textWinner.text = ("Player 2 is a winner! Going to menu in 5secs.");
+                Invoke("BackToMenu", 5f);
 			}
             if (SceneManager.GetActiveScene().name == "2Player" && Player2Alive == false)
             {
                 textWinner.enabled = true;
-                textWinner.text = ("Player 1 is a winner");
+                textWinner.text = ("Player 1 is a winner! Going to menu in 5secs.");
+                Invoke("BackToMenu", 5f);
             }
         }
 
-        private void Winner()
+
+        
+
+        private void BackToMenu()
 		{
-            if (SceneManager.GetActiveScene().name == "2Player")
+            DestroyAllGameObjects();
+            SceneManager.LoadScene("MainMenu");
+		}
+
+        public void DestroyAllGameObjects() // Destroys all gameobjects so can go back to mainmenu
+        {
+            GameObject[] GameObjects = (FindObjectsOfType<GameObject>() as GameObject[]);
+
+            for (int i = 0; i < GameObjects.Length; i++)
             {
-                
-                textWinner.text = ("Player 2 is a winner");
+                Destroy(GameObjects[i]);
             }
         }
     }
