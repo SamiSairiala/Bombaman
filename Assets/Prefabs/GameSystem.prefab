@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8460315154823325557}
   - component: {fileID: 8460315154823325558}
+  - component: {fileID: -5672549187569680344}
   m_Layer: 0
   m_Name: GameSystem
   m_TagString: Untagged
@@ -44,3 +45,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fec20d87145b1c4ba43bdada46aac6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player1Alive: 1
+  Player2Alive: 1
+  pauseMenu: {fileID: -5672549187569680344}
+--- !u!114 &-5672549187569680344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8460315154823325559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed4db3e0c199953499cf092363d4536b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 278117573615890194, guid: 3d77b6431376be04f807ee73370075d5, type: 3}
+  optionsMenu: {fileID: 0}
+  pauseFirstButton: {fileID: 0}
+  optionsFirstButton: {fileID: 0}
+  optionsClosedButton: {fileID: 0}
+  Paused: 0

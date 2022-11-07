@@ -14,6 +14,8 @@ namespace Bombaman
 
         public bool Player1Alive = true;
         public bool Player2Alive = true;
+
+        [SerializeField] PauseMenu pauseMenu;
         // Start is called before the first frame update
         void Start()
         {
@@ -42,8 +44,10 @@ namespace Bombaman
 
         
 
-        private void BackToMenu()
+        public void BackToMenu()
 		{
+            Time.timeScale = 1;
+            pauseMenu.Paused = false;
             DestroyAllGameObjects();
             SceneManager.LoadScene("MainMenu");
 		}

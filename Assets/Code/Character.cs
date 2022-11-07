@@ -18,6 +18,7 @@ namespace Bombaman
 
         private InputAction kick;
 
+        private InputAction pause;
         private IMove mover;
 
         public bool kicking = false;
@@ -54,6 +55,8 @@ namespace Bombaman
 
         private GameSystem gameSystem;
 
+        public PauseMenu pauseMenu;
+
         // Start is called before the first frame update
         private void Start()
         {
@@ -67,6 +70,8 @@ namespace Bombaman
             Health = health;
 
             kick = playerInput.actions["Kick"];
+
+            pause = playerInput.actions["Pause"];
 
             transform.position = startPosition;
 
@@ -105,8 +110,27 @@ namespace Bombaman
 			{
                 DontDestroyOnLoad(this.gameObject);
             }
-            
 
+			#region PauseMenu
+            if((SceneManager.GetActiveScene().name == "1Player" || SceneManager.GetActiveScene().name == "2Player"))
+			{
+
+                pauseMenu = FindObjectOfType<PauseMenu>();
+                if (pause.WasPerformedThisFrame())
+                {
+                    pauseMenu = FindObjectOfType<PauseMenu>();
+                    pauseMenu.PauseUnPause();
+			    }
+                if(pauseMenu.Paused == true)
+			    {
+                    bombController.enabled = false;
+			    }
+			    if(pauseMenu.Paused == false)
+			    {
+                    bombController.enabled = true;
+                }
+            }
+            #endregion
 
             if (SceneManager.GetActiveScene().name == "2Player" && Loaded == false)
             {
@@ -114,11 +138,12 @@ namespace Bombaman
                 SpawnPlayers();
                 bombController.enabled = true;
                 gameSystem = FindObjectOfType<GameSystem>();
+                pauseMenu = FindObjectOfType<PauseMenu>();
             }
             if (SceneManager.GetActiveScene().name == "1Player" && Loaded == false) //Singleplayer
             {
                 Loaded = true;
-                
+                pauseMenu = FindObjectOfType<PauseMenu>();
                 bombController.enabled = true;
             }
         }
@@ -131,11 +156,13 @@ namespace Bombaman
 			{
                 transform.position = GameObject.Find("Spawn1").transform.position;
                 startPosition = GameObject.FindGameObjectWithTag("Spawn1").transform.position;
+                
             }
             if(playerID == 2)
 			{
                 transform.position = GameObject.Find("Spawn2").transform.position; // TODO: FIX THESE
                 startPosition = GameObject.FindGameObjectWithTag("Spawn2").transform.position;
+                
             }
         }
 
