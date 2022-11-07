@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using TMPro;
 
+
 namespace Bombaman
 {
     public class IntializePlayers : MonoBehaviour
@@ -15,6 +16,8 @@ namespace Bombaman
         [SerializeField] private TextMeshProUGUI text;
 
         private bool Ready = false;
+
+        private InputDevice inputDevice;
         // Start is called before the first frame update
         void Start()
         {
@@ -24,12 +27,16 @@ namespace Bombaman
 
         void OnPlayerJoined(PlayerInput playerInput)
         {
+           
 
             Debug.Log("PlayerInput ID: " + playerInput.playerIndex);
             // Set the player ID, add one to the index to start at Player 1
             playerInput.gameObject.GetComponent<Character>().playerID = playerInput.playerIndex + 1; // Player 1 = 0, Player 2 = 1 etc.
 
             text.text = ("Player " + playerInput.playerIndex  + " Joined");
+
+           
+
             PlayerCount++;
 
             

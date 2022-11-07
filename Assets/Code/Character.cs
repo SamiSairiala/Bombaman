@@ -136,7 +136,7 @@ namespace Bombaman
             {
                 Loaded = true;
                 SpawnPlayers();
-                bombController.enabled = true;
+                bombController.enabled = true; // Enables bombcontroller which is disabled in mainmenu so cant drop bombs in mainmenu.
                 gameSystem = FindObjectOfType<GameSystem>();
                 pauseMenu = FindObjectOfType<PauseMenu>();
             }
@@ -160,7 +160,7 @@ namespace Bombaman
             }
             if(playerID == 2)
 			{
-                transform.position = GameObject.Find("Spawn2").transform.position; // TODO: FIX THESE
+                transform.position = GameObject.Find("Spawn2").transform.position; 
                 startPosition = GameObject.FindGameObjectWithTag("Spawn2").transform.position;
                 
             }
@@ -210,6 +210,11 @@ namespace Bombaman
             enabled = false;
             GetComponent<BombController>().enabled = false;
             Debug.Log("Player " + playerID + " Died!");
+
+            if(SceneManager.GetActiveScene().name == "1Player")
+			{
+                gameSystem.Player1Alive = false;
+            }
 
             if (SceneManager.GetActiveScene().name == "2Player")
             {

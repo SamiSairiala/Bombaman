@@ -15,6 +15,8 @@ namespace Bombaman
         public bool Player1Alive = true;
         public bool Player2Alive = true;
 
+        private GameObject[] enemies;
+
         [SerializeField] PauseMenu pauseMenu;
         // Start is called before the first frame update
         void Start()
@@ -22,12 +24,29 @@ namespace Bombaman
             player = FindObjectOfType<Character>();
             textWinner = FindObjectOfType<TextMeshProUGUI>();
             textWinner.enabled = false;
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         }
 
         // Update is called once per frame
         void Update()
         {
-            if(SceneManager.GetActiveScene().name == "2Player" && Player1Alive == false)
+            
+            if(SceneManager.GetActiveScene().name == "1Player" &&  enemies.Length == 0) // FOR SINGLEPLAYER WIN CHECKING.
+			{
+                textWinner.enabled = true;
+                textWinner.text = ("Player won! Going to menu in 5secs.");
+                Invoke("BackToMenu", 5f);
+            }
+
+
+
+            if (SceneManager.GetActiveScene().name == "1Player" && Player1Alive == false) // FOR SINGLEPLAYER WIN CHECKING.
+            {
+                textWinner.enabled = true;
+                textWinner.text = ("Player died! Going to menu in 5secs.");
+                Invoke("BackToMenu", 5f);
+            }
+            if (SceneManager.GetActiveScene().name == "2Player" && Player1Alive == false)
 			{
                 textWinner.enabled = true;
                 textWinner.text = ("Player 2 is a winner! Going to menu in 5secs.");
