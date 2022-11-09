@@ -24,14 +24,14 @@ namespace Bombaman
             player = FindObjectOfType<Character>();
             textWinner = FindObjectOfType<TextMeshProUGUI>();
             textWinner.enabled = false;
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            
         }
 
         // Update is called once per frame
         void Update()
         {
-            
-            if(SceneManager.GetActiveScene().name == "1Player" &&  enemies.Length == 0) // FOR SINGLEPLAYER WIN CHECKING.
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            if (SceneManager.GetActiveScene().name == "1Player" &&  enemies.Length == 0) // FOR SINGLEPLAYER WIN CHECKING.
 			{
                 textWinner.enabled = true;
                 textWinner.text = ("Player won! Going to menu in 5secs.");
