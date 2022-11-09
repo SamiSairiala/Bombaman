@@ -35,7 +35,7 @@ namespace Bombaman
 			{
                 textWinner.enabled = true;
                 textWinner.text = ("Player won! Going to menu in 5secs.");
-                Invoke("BackToMenu", 5f);
+                Invoke("BackToMenu", 5f); //TODO: Load next singleplayer scene.
             }
 
 

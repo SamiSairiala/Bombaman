@@ -22,6 +22,10 @@ namespace Bombaman
             hit = false;
             controller = FindObjectOfType<BombController>();
             rigidbody = GetComponent<Rigidbody2D>();
+            rigidbody.bodyType = RigidbodyType2D.Kinematic;
+            
+            
+            
         }
         #region old bomb script.
         //[SerializeField] private GameObject explosionPrefab;
@@ -160,13 +164,27 @@ namespace Bombaman
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if(collision.transform.name == "Player" && collision.transform.GetComponent<Character>().kicking) // Checks if player is kicking
+
+            if (collision.transform.tag == "Player" && collision.transform.GetComponent<Character>().kicking == true) // Checks if player is kicking
             {
-                
+                Debug.Log("IsKicking");
+                rigidbody.bodyType = RigidbodyType2D.Dynamic;
                 Vector3 direction = (collision.transform.position - transform.position).normalized;
                 rigidbody.AddForce(-direction * kickForce, ForceMode2D.Impulse); // To make it move less edit kickForce.
             }
         }
+
+        //private void OnCollisionStay2D(Collision2D collision)
+        //{
+
+        //    if (collision.transform.tag == "Player" && collision.transform.GetComponent<Character>().kicking == true) // Checks if player is kicking
+        //    {
+        //        Debug.Log("IsKicking");
+        //        rigidbody.bodyType = RigidbodyType2D.Dynamic;
+        //        Vector3 direction = (collision.transform.position - transform.position).normalized;
+        //        rigidbody.AddForce(-direction * kickForce, ForceMode2D.Impulse); // To make it move less edit kickForce.
+        //    }
+        //}
 
 
 
