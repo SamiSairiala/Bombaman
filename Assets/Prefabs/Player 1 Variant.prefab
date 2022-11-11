@@ -185,15 +185,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5543069182381772233, guid: 59db96775738f8448b77a3006625a0da, type: 3}
       propertyPath: m_ActionEvents.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5543069182381772233, guid: 59db96775738f8448b77a3006625a0da, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_ActionId
       value: 89853bc1-614e-4eab-b50a-bb74c97a9815
       objectReference: {fileID: 0}
     - target: {fileID: 5543069182381772233, guid: 59db96775738f8448b77a3006625a0da, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionId
+      value: 407edb7f-c19e-4b5d-a7f8-4c47ebfc8a6e
+      objectReference: {fileID: 0}
+    - target: {fileID: 5543069182381772233, guid: 59db96775738f8448b77a3006625a0da, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_ActionName
       value: UI/Scroll[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+      objectReference: {fileID: 0}
+    - target: {fileID: 5543069182381772233, guid: 59db96775738f8448b77a3006625a0da, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionName
+      value: Player/Pause[/Keyboard/escape]
       objectReference: {fileID: 0}
     - target: {fileID: 5543069182381772234, guid: 59db96775738f8448b77a3006625a0da, type: 3}
       propertyPath: m_Name
@@ -217,19 +225,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5543069182381772237, guid: 59db96775738f8448b77a3006625a0da, type: 3}
       propertyPath: m_Size.x
-      value: 0.6307368
+      value: 0.39653444
       objectReference: {fileID: 0}
     - target: {fileID: 5543069182381772237, guid: 59db96775738f8448b77a3006625a0da, type: 3}
       propertyPath: m_Size.y
-      value: 0.65346193
+      value: 0.49266672
       objectReference: {fileID: 0}
     - target: {fileID: 5543069182381772237, guid: 59db96775738f8448b77a3006625a0da, type: 3}
       propertyPath: m_Offset.x
-      value: 0.008521795
+      value: -0.00021719933
       objectReference: {fileID: 0}
     - target: {fileID: 5543069182381772237, guid: 59db96775738f8448b77a3006625a0da, type: 3}
       propertyPath: m_Offset.y
-      value: -0.059650183
+      value: -0.045667887
       objectReference: {fileID: 0}
     - target: {fileID: 5543069182381772237, guid: 59db96775738f8448b77a3006625a0da, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x

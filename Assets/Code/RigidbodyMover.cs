@@ -12,6 +12,12 @@ namespace Bombaman
 
         [SerializeField]private Animator animator;
 
+        public bool GridMovement = false;
+
+        public bool isMoving;
+        private Vector3 origPos, targetPos;
+
+        
         public float Speed
         {
             get;
@@ -20,8 +26,10 @@ namespace Bombaman
 
         public void Move(Vector2 direction)
         {
+           
             Movement = direction * Speed;
-            if(gameObject.tag == "Player")
+            
+            if (gameObject.tag == "Player")
 			{
                 animator = GetComponent<Animator>();
                 animator.SetFloat("Horizontal", Movement.x);
@@ -30,6 +38,23 @@ namespace Bombaman
                 
             }
         }
+
+        public IEnumerator MovePlayerGrid(Vector3 direction)
+		{
+            isMoving = true;
+            float elapsedTime = 0;
+            origPos = transform.position;
+            targetPos = origPos + direction;
+
+            while(elapsedTime < Speed)
+			{
+                transform.position = Vector3.Lerp(origPos, targetPos, (elapsedTime / Speed));
+                elapsedTime += Time.deltaTime;
+                yield return null;
+			}
+            transform.position = targetPos;
+            isMoving = false;
+		}
 
         public void Setup(float speed)
         {

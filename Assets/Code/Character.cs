@@ -57,9 +57,12 @@ namespace Bombaman
 
         public PauseMenu pauseMenu;
 
+        public RigidbodyMover RBMover;
+
         // Start is called before the first frame update
         private void Start()
         {
+            RBMover = GetComponent<RigidbodyMover>();
             // Adds players input which is binded to "BOMB" to be called through variable.
             bomb = playerInput.actions["Bomb"];
 
@@ -75,7 +78,7 @@ namespace Bombaman
 
             transform.position = startPosition;
 
-           
+            
 
             animator = GetComponent<Animator>();
         }
@@ -187,9 +190,22 @@ namespace Bombaman
             
             // Reads the users input using inputsystem callback.
             input = context.ReadValue<Vector2>();
-            mover.Move(input);
-            
-        }
+            if (RBMover.GridMovement == false)
+            {
+                mover.Move(input);
+            }
+
+
+			if (RBMover.GridMovement == true)
+			{
+
+				if (RBMover.isMoving == false)
+				{
+					StartCoroutine(RBMover.MovePlayerGrid(input));
+				}
+			}
+
+		}
 
         public void TakeDamage(float damageAmount)
         {
