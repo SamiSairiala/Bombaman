@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 73f7003cac1658345854d26868f388e2
+guid: 613f49426dcaf4142abf80f4e78864b5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,91 +104,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MC_idle_animation3_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 5120
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 98a4236f12e8fd94099b9e6c0b80688a
-      internalID: 323348340
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MC_idle_animation3_1
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 5120
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f0336f73174dd384a9dfb2d51c7850ed
-      internalID: -1380010735
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MC_idle_animation3_2
-      rect:
-        serializedVersion: 2
-        x: 2048
-        y: 5120
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f6e5b9af6d71f7a4d8afa829c1c398c9
-      internalID: -845000112
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MC_idle_animation3_3
-      rect:
-        serializedVersion: 2
-        x: 3072
-        y: 5120
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aafc50a26c4b37641b606807451b1277
-      internalID: 1848486837
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MC_idle_animation3_4
+      name: MC_kicking_animation2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -202,14 +118,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7642211370718ed41817301387c29b11
-      internalID: 580685393
+      spriteID: 00d26ab1c5451d646b935cbdbbc9319a
+      internalID: 1427952361
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_idle_animation3_5
+      name: MC_kicking_animation2_1
       rect:
         serializedVersion: 2
         x: 1024
@@ -223,14 +139,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4e486934a8a4cf47bc8179b0b793da1
-      internalID: -1093992203
+      spriteID: 4fd026f4ae812944f8d462ee1feee13e
+      internalID: -669232620
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_idle_animation3_6
+      name: MC_kicking_animation2_2
       rect:
         serializedVersion: 2
         x: 2048
@@ -244,35 +160,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab52c99f037a61044b7803a48c7ce340
-      internalID: -526815266
+      spriteID: 38e9d3db283fe0f4f943ab7492265ca2
+      internalID: 1557859919
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_idle_animation3_7
-      rect:
-        serializedVersion: 2
-        x: 3072
-        y: 4096
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7c5ccd7e623ce5141b392bedfd0a9f0d
-      internalID: -697674665
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MC_idle_animation3_8
+      name: MC_kicking_animation2_3
       rect:
         serializedVersion: 2
         x: 0
@@ -286,14 +181,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7316e44f930f4b4999f259df3659afd
-      internalID: -6839831
+      spriteID: 2ccc26ce7d8c0e84eb367ed7674435e1
+      internalID: -524783267
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_idle_animation3_9
+      name: MC_kicking_animation2_4
       rect:
         serializedVersion: 2
         x: 1024
@@ -307,14 +202,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 954ae0c98be301a48a66b6d344d80892
-      internalID: 243307577
+      spriteID: 745689be37e4a644dafbec717a7e5be3
+      internalID: 2039900038
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_idle_animation3_10
+      name: MC_kicking_animation2_5
       rect:
         serializedVersion: 2
         x: 2048
@@ -328,35 +223,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b8c3734f2ea07e49b7a18c0c8eb7a4a
-      internalID: 1993312635
+      spriteID: 8321554b8a6b95442b2e5a87f89ae0e4
+      internalID: -1994649195
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_idle_animation3_11
-      rect:
-        serializedVersion: 2
-        x: 3072
-        y: 3072
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4f0a0dbee5cfb8c499cb1171b9b8b775
-      internalID: -1156927628
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MC_idle_animation3_12
+      name: MC_kicking_animation2_6
       rect:
         serializedVersion: 2
         x: 0
@@ -370,14 +244,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7739ca9cc9255db42aa3cc63c6e79bde
-      internalID: 1143268761
+      spriteID: bcf16b6c80484cc498317699c86e0ffd
+      internalID: -2089604250
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_idle_animation3_13
+      name: MC_kicking_animation2_7
       rect:
         serializedVersion: 2
         x: 1024
@@ -391,14 +265,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f11c9a18e7728db4c9abff39f76abde4
-      internalID: -1877192082
+      spriteID: 11817dac98857384bb8a2024d5aa3107
+      internalID: 1251873966
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_idle_animation3_14
+      name: MC_kicking_animation2_8
       rect:
         serializedVersion: 2
         x: 2048
@@ -412,35 +286,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac965c3dd60028b4da6135215aa5a996
-      internalID: -1512760749
+      spriteID: ad46e69c4d3f8d04984b578abf83439d
+      internalID: 698104224
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_idle_animation3_15
-      rect:
-        serializedVersion: 2
-        x: 3072
-        y: 2048
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dbeb572abe246614380cf813a6bcadb7
-      internalID: 1966323935
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MC_idle_animation3_16
+      name: MC_kicking_animation2_9
       rect:
         serializedVersion: 2
         x: 0
@@ -454,14 +307,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7a7039df9dd22247a61a1665f989036
-      internalID: 1314462314
+      spriteID: 9d94ec09e2ac4a74da64e3623746674e
+      internalID: 410611689
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_idle_animation3_17
+      name: MC_kicking_animation2_10
       rect:
         serializedVersion: 2
         x: 1024
@@ -475,14 +328,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bcc7138c21168f5478ebdc396d79212f
-      internalID: -1909205776
+      spriteID: 793b6819916c99845a9a42f7e948b9f3
+      internalID: -1188490883
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_idle_animation3_18
+      name: MC_kicking_animation2_11
       rect:
         serializedVersion: 2
         x: 2048
@@ -496,35 +349,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1609ab3ae6959e489c914e0bb9fc244
-      internalID: -1821089051
+      spriteID: 71e4428a2a96b8a499f3603fb9ae7218
+      internalID: -1295733785
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_idle_animation3_19
-      rect:
-        serializedVersion: 2
-        x: 3072
-        y: 1024
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8bb04772c68608d46947e792344f08a0
-      internalID: -665400887
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MC_idle_animation3_20
+      name: MC_kicking_animation2_12
       rect:
         serializedVersion: 2
         x: 0
@@ -538,14 +370,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bbf5e960a2d14b489f393ee41012456
-      internalID: 1555039484
+      spriteID: f1a359d388f83364a9d46076bf5adc46
+      internalID: -1626230662
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_idle_animation3_21
+      name: MC_kicking_animation2_13
       rect:
         serializedVersion: 2
         x: 1024
@@ -559,50 +391,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f60f2b565a55fe34a8152339e8056179
-      internalID: 79080186
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MC_idle_animation3_22
-      rect:
-        serializedVersion: 2
-        x: 2048
-        y: 0
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2b56e04869d15ae4582e5ef55aa7835d
-      internalID: 2099739504
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MC_idle_animation3_23
-      rect:
-        serializedVersion: 2
-        x: 3072
-        y: 0
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: db2f0ebe9c3edc845b070e87f82dc22c
-      internalID: -2047189522
+      spriteID: ddfcc249bc373f844b4dea9612a97943
+      internalID: -1410757817
       vertices: []
       indices: 
       edges: []
@@ -618,30 +408,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MC_idle_animation3_23: -2047189522
-      MC_idle_animation3_21: 79080186
-      MC_idle_animation3_18: -1821089051
-      MC_idle_animation3_15: 1966323935
-      MC_idle_animation3_5: -1093992203
-      MC_idle_animation3_9: 243307577
-      MC_idle_animation3_13: -1877192082
-      MC_idle_animation3_3: 1848486837
-      MC_idle_animation3_4: 580685393
-      MC_idle_animation3_0: 323348340
-      MC_idle_animation3_8: -6839831
-      MC_idle_animation3_12: 1143268761
-      MC_idle_animation3_14: -1512760749
-      MC_idle_animation3_11: -1156927628
-      MC_idle_animation3_1: -1380010735
-      MC_idle_animation3_10: 1993312635
-      MC_idle_animation3_19: -665400887
-      MC_idle_animation3_6: -526815266
-      MC_idle_animation3_17: -1909205776
-      MC_idle_animation3_2: -845000112
-      MC_idle_animation3_22: 2099739504
-      MC_idle_animation3_16: 1314462314
-      MC_idle_animation3_7: -697674665
-      MC_idle_animation3_20: 1555039484
+      MC_kicking_animation2_9: 410611689
+      MC_kicking_animation2_3: -524783267
+      MC_kicking_animation2_4: 2039900038
+      MC_kicking_animation2_7: 1251873966
+      MC_kicking_animation2_0: 1427952361
+      MC_kicking_animation2_6: -2089604250
+      MC_kicking_animation2_10: -1188490883
+      MC_kicking_animation2_13: -1410757817
+      MC_kicking_animation2_12: -1626230662
+      MC_kicking_animation2_5: -1994649195
+      MC_kicking_animation2_8: 698104224
+      MC_kicking_animation2_11: -1295733785
+      MC_kicking_animation2_2: 1557859919
+      MC_kicking_animation2_1: -669232620
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
