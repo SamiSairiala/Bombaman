@@ -145,7 +145,7 @@ namespace Bombaman
                 gameSystem = FindObjectOfType<GameSystem>();
                 pauseMenu = FindObjectOfType<PauseMenu>();
             }
-            if (SceneManager.GetActiveScene().name == "1Player" && Loaded == false) //Singleplayer
+            if (SceneManager.GetActiveScene().name == "level0" && Loaded == false) //Singleplayer
             {
                 Loaded = true;
                 pauseMenu = FindObjectOfType<PauseMenu>();

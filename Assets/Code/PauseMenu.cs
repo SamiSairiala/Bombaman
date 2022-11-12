@@ -48,7 +48,7 @@ namespace Bombaman
 				Paused = false;
                 pauseMenu.SetActive(false);
                 Time.timeScale = 1;
-                optionsMenu.SetActive(false);
+                //optionsMenu.SetActive(false);
 			}
 		}
     }

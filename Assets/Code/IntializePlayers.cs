@@ -18,6 +18,8 @@ namespace Bombaman
         private bool Ready = false;
 
         private InputDevice inputDevice;
+
+        
         // Start is called before the first frame update
         void Start()
         {
@@ -54,12 +56,13 @@ namespace Bombaman
         {
             if(PlayerCount == 1 && Ready == true)
 			{
-                SceneManager.LoadScene("1Player");  // LOAD SINGLEPLAYER
+                //SceneManager.LoadScene("1Player");
+                GameStateManager.Instance.Go(GameStates.StateType.InGame);// LOAD SINGLEPLAYER
             }
             if (PlayerCount == 2 && Ready == true) 
             {
-                SceneManager.LoadScene("2Player"); // LOAD 2 PLAYER SCENE.
-                
+				SceneManager.LoadScene("2Player"); // LOAD 2 PLAYER SCENE.
+				//GameStateManager.Instance.Go(GameStates.StateType.Multiplayer);
             }
             if (PlayerCount == 3 && Ready == true)
             {

@@ -105,6 +105,7 @@ namespace Bombaman
                 position.y = Mathf.Round(position.y);
                 }
                 Explosion explosion = Instantiate(explosionPrefab, position, Quaternion.identity); // 
+                explosion.SetActiveRenderer(explosion.start);
                 Destroy(explosion.gameObject, explosionDuration);
                 explosion.DestroyAfter(explosionDuration); // Destroy explosion prefab.
             }
@@ -177,7 +178,8 @@ namespace Bombaman
             }
 
             Explosion explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
-            
+            explosion.SetActiveRenderer(lenght > 1 ? explosion.middle : explosion.end);
+            explosion.SetDirection(direction);
             Destroy(explosion.gameObject, explosionDuration);
             explosion.DestroyAfter(explosionDuration);
 

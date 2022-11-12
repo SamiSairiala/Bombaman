@@ -30,8 +30,9 @@ namespace Bombaman
         // Update is called once per frame
         void Update()
         {
+            
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-            if (SceneManager.GetActiveScene().name == "1Player" &&  enemies.Length == 0) // FOR SINGLEPLAYER WIN CHECKING.
+            if (SceneManager.GetActiveScene().name.ToLower().StartsWith ("level") &&  enemies.Length == 0) // FOR SINGLEPLAYER WIN CHECKING.
 			{
                 textWinner.enabled = true;
                 textWinner.text = ("Player won! Going to menu in 5secs.");
@@ -39,8 +40,8 @@ namespace Bombaman
             }
 
 
-
-            if (SceneManager.GetActiveScene().name == "1Player" && Player1Alive == false) // FOR SINGLEPLAYER WIN CHECKING.
+            
+            if (SceneManager.GetActiveScene().name.ToLower().StartsWith("level") && Player1Alive == false) // FOR SINGLEPLAYER WIN CHECKING.
             {
                 textWinner.enabled = true;
                 textWinner.text = ("Player died! Going to menu in 5secs.");
@@ -64,11 +65,10 @@ namespace Bombaman
         
 
         public void BackToMenu()
-		{
-            Time.timeScale = 1;
+		{      
             pauseMenu.Paused = false;
             DestroyAllGameObjects();
-            SceneManager.LoadScene("MainMenu");
+            GameStateManager.Instance.Go(GameStates.StateType.MainMenu);
 		}
 
         public void DestroyAllGameObjects() // Destroys all gameobjects so can go back to mainmenu
