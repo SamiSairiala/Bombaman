@@ -58,6 +58,7 @@ namespace Bombaman
         public PauseMenu pauseMenu;
 
         public RigidbodyMover RBMover;
+        private bool isReady = false;
 
         // Start is called before the first frame update
         private void Start()
@@ -81,6 +82,7 @@ namespace Bombaman
             
 
             animator = GetComponent<Animator>();
+            isReady = true;
         }
 
         public int GetPlayerIndex()
@@ -187,7 +189,8 @@ namespace Bombaman
 
         public void Move(InputAction.CallbackContext context)
         {
-            
+            if (!isReady) return;
+
             // Reads the users input using inputsystem callback.
             input = context.ReadValue<Vector2>();
             if (RBMover.GridMovement == false)
@@ -201,6 +204,7 @@ namespace Bombaman
 
 				if (RBMover.isMoving == false)
 				{
+                    input = transform.position + new Vector3(input.x, input.y, 0);
 					StartCoroutine(RBMover.MovePlayerGrid(input));
 				}
 			}

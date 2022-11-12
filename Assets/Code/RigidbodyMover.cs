@@ -42,17 +42,24 @@ namespace Bombaman
         public IEnumerator MovePlayerGrid(Vector3 direction)
 		{
             isMoving = true;
-            float elapsedTime = 0;
-            origPos = transform.position;
-            targetPos = origPos + direction;
+   //         float elapsedTime = 0;
+   //         origPos = transform.position;
+   //         targetPos = origPos + direction;
 
-            while(elapsedTime < Speed)
+   //         while(elapsedTime < Speed)
+			//{
+   //             transform.position = Vector3.Lerp(origPos, targetPos, (elapsedTime / Speed));
+   //             elapsedTime += Time.deltaTime;
+   //             yield return null;
+			//}
+   //         transform.position = targetPos;
+
+            while((direction - transform.position).sqrMagnitude > Mathf.Epsilon)
 			{
-                transform.position = Vector3.Lerp(origPos, targetPos, (elapsedTime / Speed));
-                elapsedTime += Time.deltaTime;
+                transform.position = Vector3.MoveTowards(transform.position, direction, Speed * Time.fixedDeltaTime - 0.5f);
                 yield return null;
 			}
-            transform.position = targetPos;
+            transform.position = direction;
             isMoving = false;
 		}
 
