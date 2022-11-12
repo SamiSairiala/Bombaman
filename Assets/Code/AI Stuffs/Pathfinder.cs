@@ -196,7 +196,7 @@ namespace Bombaman
             
             Vector2Int[] cellOffset = new Vector2Int[tilemap.Length];
             walkable = new bool[tilemap[0].cellBounds.size.x, tilemap[0].cellBounds.size.y];
-            for (int i = 0; i < tilemap.Length; i++)
+            for (int i = 0; i < tilemap.Length - 1; i++)
             {
                 var bounds = tilemap[i].cellBounds;
                 cellOffset[i] = new Vector2Int(Mathf.Abs(bounds.xMin), Mathf.Abs(bounds.yMin));
