@@ -404,5 +404,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 1 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4388893563854228815, guid: dc644e638fdad29439a537c1a52035fc, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1380010735, guid: 73f7003cac1658345854d26868f388e2, type: 3}
+    - target: {fileID: 4388893563854228815, guid: dc644e638fdad29439a537c1a52035fc, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4388893563854228815, guid: dc644e638fdad29439a537c1a52035fc, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4388893563854228815, guid: dc644e638fdad29439a537c1a52035fc, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc644e638fdad29439a537c1a52035fc, type: 3}
