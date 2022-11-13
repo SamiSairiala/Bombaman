@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1024
+  spritePixelsToUnits: 512
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -786,7 +786,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MC_walk_right_animation2_29: 1728388411
+      MC_walk_right_animation2_15: 1474933024
       MC_walk_right_animation2_20: 806570540
       MC_walk_right_animation2_5: -1844471342
       MC_walk_right_animation2_12: 626458898
@@ -815,7 +815,7 @@ TextureImporter:
       MC_walk_right_animation2_8: -1450838759
       MC_walk_right_animation2_27: -652045289
       MC_walk_right_animation2_24: 1098503382
-      MC_walk_right_animation2_15: 1474933024
+      MC_walk_right_animation2_29: 1728388411
       MC_walk_right_animation2_19: 1196094017
       MC_walk_right_animation2_14: 647642723
   spritePackingTag: 
