@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fba65b60b56025f449e4f43d2a027a50
+guid: 83cb0d070eeb4f4459a3a379416506db
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,43 +104,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Assets tree_ice2_0
+      name: blocksSprite2_0
       rect:
         serializedVersion: 2
-        x: 67
-        y: 5
-        width: 847
-        height: 1014
+        x: 171
+        y: 133
+        width: 680
+        height: 772
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55dc6f83df63a774bb8ad5b2033d2fcd
-      internalID: -213195669
+      spriteID: 490af14c896dce648978473f78c1f327
+      internalID: 1789167587
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Assets tree_ice2_1
+      name: blocksSprite2_1
       rect:
         serializedVersion: 2
-        x: 1195
-        y: 133
-        width: 680
-        height: 772
+        x: 1146
+        y: 44
+        width: 770
+        height: 918
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5439e373507ea944f8caf3062fbc9428
-      internalID: -556573939
+      spriteID: 197d1c557a95a4d4da43be1abafafd9a
+      internalID: -28229064
       vertices: []
       indices: 
       edges: []
@@ -156,8 +156,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Assets tree_ice2_0: -213195669
-      Assets tree_ice2_1: -556573939
+      blocksSprite2_1: -28229064
+      blocksSprite2_0: 1789167587
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
