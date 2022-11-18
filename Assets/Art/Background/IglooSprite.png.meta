@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dd0d5670e2d367e4485c52900b181047
+guid: 96179438f1bbb2a4dbc255359f5d0173
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,12 +104,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IgloosSprite_0
+      name: IglooSprite_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 36
-        width: 1023
+        width: 1024
         height: 916
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -118,14 +118,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be29cfcd5f6873e458be7c3a95ecf5d2
-      internalID: 195549618
+      spriteID: 80e647c82ec01cc4abde997202e3747a
+      internalID: -343223176
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IgloosSprite_1
+      name: IglooSprite_1
       rect:
         serializedVersion: 2
         x: 1025
@@ -139,8 +139,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97913833fad89fa4d8a282198d57f946
-      internalID: 1840805019
+      spriteID: 79e4a89f17fa8894e9ba48ffa84b41a1
+      internalID: -2100738282
       vertices: []
       indices: 
       edges: []
@@ -156,8 +156,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      IgloosSprite_0: 195549618
-      IgloosSprite_1: 1840805019
+      IglooSprite_1: -2100738282
+      IglooSprite_0: -343223176
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
