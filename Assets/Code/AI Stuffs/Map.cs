@@ -84,13 +84,13 @@ namespace Bombaman
         #region Gizmo
         private void OnDrawGizmosSelected()
         {
-            Offset = new Vector2(Mathf.Min(breakable.cellBounds.xMin, unbreakable.cellBounds.xMin),
-                Mathf.Min(breakable.cellBounds.yMin, unbreakable.cellBounds.yMin));
-
             Gizmos.color = Color.black;
             Tilemap[] temp = GetComponentsInChildren<Tilemap>();
             breakable = temp[0];
             unbreakable = temp[1];
+
+            Offset = new Vector2(Mathf.Min(breakable.cellBounds.xMin, unbreakable.cellBounds.xMin),
+                Mathf.Min(breakable.cellBounds.yMin, unbreakable.cellBounds.yMin));
 
             if (walkable == null) walkable = GetWalkable(new Vector2Int(Mathf.Max(temp[0].size.x, temp[1].size.x),
                 Mathf.Max(temp[0].size.y, temp[1].size.y)));
