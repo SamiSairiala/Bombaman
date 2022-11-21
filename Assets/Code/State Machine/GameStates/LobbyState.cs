@@ -9,12 +9,12 @@ namespace Bombaman
     {
         public override string SceneName
         {
-            get { return "Options"; }
+            get { return "Lobby"; }
         }
 
         public override StateType Type
         {
-            get { return StateType.Options; }
+            get { return StateType.Lobby; }
         }
 
         public override bool IsAdditive

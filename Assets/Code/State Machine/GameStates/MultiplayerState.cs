@@ -16,7 +16,7 @@ namespace Bombaman
 
         public override StateType Type
         {
-            get { return StateType.InGame; }
+            get { return StateType.Multiplayer; }
         }
 
         public MultiplayerState() : base()
