@@ -9,8 +9,10 @@ namespace Bombaman
 {
     public class GameSystem : MonoBehaviour
     {
-        private TextMeshProUGUI textWinner;
+        [SerializeField]private TextMeshProUGUI textWinner;
         private Character player;
+
+        [SerializeField] Canvas SinglePlayerTutorial;
 
         public bool Player1Alive = true;
         public bool Player2Alive = true;
@@ -22,7 +24,7 @@ namespace Bombaman
         void Start()
         {
             player = FindObjectOfType<Character>();
-            textWinner = FindObjectOfType<TextMeshProUGUI>();
+            
             textWinner.enabled = false;
             
         }
@@ -39,8 +41,11 @@ namespace Bombaman
                 Invoke("BackToMenu", 5f); //TODO: Load next singleplayer scene.
             }
 
+            if (SceneManager.GetActiveScene().name.ToLower().StartsWith("level") && GameObject.FindGameObjectWithTag("Player")) // FOR SINGLEPLAYER WIN CHECKING.
+            {
+                SinglePlayerTutorial.enabled = false;
+            }
 
-            
             if (SceneManager.GetActiveScene().name.ToLower().StartsWith("level") && Player1Alive == false) // FOR SINGLEPLAYER WIN CHECKING.
             {
                 textWinner.enabled = true;

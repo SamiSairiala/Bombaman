@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.EventSystems;
+using Bombaman.GameStates;
 
 
 namespace Bombaman
@@ -43,10 +44,9 @@ namespace Bombaman
             // Set the player ID, add one to the index to start at Player 1
             playerInput.gameObject.GetComponent<Character>().playerID = playerInput.playerIndex + 1; // Player 1 = 0, Player 2 = 1 etc.
 
-            if (SceneManager.GetActiveScene().name == "Lobby")
-            {
+           
                 text.text = ("Player " + playerInput.playerIndex + " Joined");
-            }
+            
            
 
             PlayerCount++;
@@ -60,22 +60,21 @@ namespace Bombaman
 		{
             Debug.Log("Pressed start");
             Ready = true;
-            if (PlayerCount == 2 && Ready == true && SceneManager.GetActiveScene().name == "Lobby")
-            {
-                SceneManager.LoadScene("2Player"); // LOAD 2 PLAYER SCENE.
-                                                   //GameStateManager.Instance.Go(GameStates.StateType.Multiplayer);
-            }
+            
         }
 
         public void LobbyAndBack()
 		{
             Destroy(GameObject.FindGameObjectWithTag("EventSystem"));
             Destroy(this.gameObject);
-            if(SceneManager.GetActiveScene().name == "Lobby")
-			{
+            if (GameStateManager.Instance.CurrentState.Type == StateType.Lobby)
+            {
+
+
                 Destroy(GameObject.FindGameObjectWithTag("Player"));
                 Destroy(GameObject.FindGameObjectWithTag("EventSystem"));
             }
+            
             
 		}
 
@@ -87,17 +86,18 @@ namespace Bombaman
                 //SceneManager.LoadScene("1Player");
                 GameStateManager.Instance.Go(GameStates.StateType.InGame);// LOAD SINGLEPLAYER
             }
-            if (PlayerCount == 2 && Ready == true && SceneManager.GetActiveScene().name == "Lobby") 
+            if (PlayerCount == 2 && Ready == true && GameStateManager.Instance.CurrentState.Type == StateType.Lobby) 
             {
+                Debug.Log("Going to 2 Player");
 				SceneManager.LoadScene("2Player"); // LOAD 2 PLAYER SCENE.
 				//GameStateManager.Instance.Go(GameStates.StateType.Multiplayer);
             }
-            if (PlayerCount == 3 && Ready == true && SceneManager.GetActiveScene().name == "Lobby")
+            if (PlayerCount == 3 && Ready == true)
             {
                 // LOAD 3 PLAYER
 
             }
-            if (PlayerCount == 4 && Ready == true && SceneManager.GetActiveScene().name == "Lobby")
+            if (PlayerCount == 4 && Ready == true && GameStateManager.Instance.CurrentState.Equals(StateType.Lobby)/* && SceneManager.GetActiveScene().name == "Lobby"*/)
             {
                 // LOAD 4 PLAYER
 
