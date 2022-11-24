@@ -60,6 +60,8 @@ namespace Bombaman
         public RigidbodyMover RBMover;
         private bool isReady = false;
 
+        
+
         // Start is called before the first frame update
         private void Start()
         {
@@ -111,7 +113,7 @@ namespace Bombaman
             }
             mover.Setup(Speed);
 
-            if(SceneManager.GetActiveScene().name == "MainMenu")
+            if(SceneManager.GetActiveScene().name == "MainMenu" || SceneManager.GetActiveScene().name == "Lobby")
 			{
                 DontDestroyOnLoad(this.gameObject);
             }

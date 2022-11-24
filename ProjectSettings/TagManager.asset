@@ -11,6 +11,7 @@ TagManager:
   - Spawn1
   - Spawn2
   - Enemy
+  - EventSystem
   layers:
   - Default
   - TransparentFX
