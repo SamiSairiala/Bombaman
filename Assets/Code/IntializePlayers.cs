@@ -45,13 +45,13 @@ namespace Bombaman
             playerInput.gameObject.GetComponent<Character>().playerID = playerInput.playerIndex + 1; // Player 1 = 0, Player 2 = 1 etc.
 
            
-                text.text = ("Player " + playerInput.playerIndex + " Joined");
+               
             
            
 
             PlayerCount++;
+            text.text = ("Players joined: " + PlayerCount);
 
-            
         }
 
         

@@ -38,10 +38,10 @@ namespace Bombaman
 			{
                 textWinner.enabled = true;
                 textWinner.text = ("Player won! Going to menu in 5secs.");
-                Invoke("BackToMenu", 5f); //TODO: Load next singleplayer scene.
+                Invoke("GameOver", 5f); //TODO: Load next singleplayer scene.
             }
 
-            if (SceneManager.GetActiveScene().name.ToLower().StartsWith("level") && GameObject.FindGameObjectWithTag("Player")) // FOR SINGLEPLAYER WIN CHECKING.
+            if (SceneManager.GetActiveScene().name.ToLower().StartsWith("level") && GameObject.FindGameObjectWithTag("Player")) // Check if player has spawned in yet.
             {
                 SinglePlayerTutorial.enabled = false;
             }
@@ -49,20 +49,20 @@ namespace Bombaman
             if (SceneManager.GetActiveScene().name.ToLower().StartsWith("level") && Player1Alive == false) // FOR SINGLEPLAYER WIN CHECKING.
             {
                 textWinner.enabled = true;
-                textWinner.text = ("Player died! Going to menu in 5secs.");
-                Invoke("BackToMenu", 5f);
+                textWinner.text = ("Player died!");
+                Invoke("GameOver", 2f);
             }
             if (SceneManager.GetActiveScene().name == "2Player" && Player1Alive == false)
 			{
                 textWinner.enabled = true;
                 textWinner.text = ("Player 2 is a winner! Going to menu in 5secs.");
-                Invoke("BackToMenu", 5f);
+                Invoke("GameOver", 5f);
 			}
             if (SceneManager.GetActiveScene().name == "2Player" && Player2Alive == false)
             {
                 textWinner.enabled = true;
                 textWinner.text = ("Player 1 is a winner! Going to menu in 5secs.");
-                Invoke("BackToMenu", 5f);
+                Invoke("GameOver", 5f);
             }
         }
 
@@ -70,11 +70,20 @@ namespace Bombaman
         
 
         public void BackToMenu()
-		{      
-            //pauseMenu.Paused = false;
-            //DestroyAllGameObjects();
+		{
+            pauseMenu.Paused = false;
+            DestroyAllGameObjects();
+            //SceneManager.LoadScene("MainMenu");
             GameStateManager.Instance.Go(GameStates.StateType.MainMenu);
 		}
+
+        public void GameOver()
+		{
+            pauseMenu.Paused = false;
+            DestroyAllGameObjects();
+            //SceneManager.LoadScene("GameOver");
+            GameStateManager.Instance.Go(GameStates.StateType.GameOver);
+        }
 
         public void DestroyAllGameObjects() // Destroys all gameobjects so can go back to mainmenu
         {

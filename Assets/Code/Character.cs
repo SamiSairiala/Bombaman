@@ -13,20 +13,24 @@ namespace Bombaman
 
         public PlayerInput playerInput;
 
-        // Adds players input which is binded to "BOMB" to be called through variable.
-        private InputAction bomb;
+		// Adds players input which is binded to "BOMB" to be called through variable.
+		#region PlayerInputs
+		private InputAction bomb;
 
         private InputAction kick;
 
         private InputAction pause;
-        private IMove mover;
+		#endregion
+		private IMove mover;
 
+        #region Bools
         public bool kicking = false;
 
         private bool Player1Alive = true;
         private bool Player2Alive = true;
+		#endregion
 
-        float animationKickDuration = 1f;
+		float animationKickDuration = 1f;
 
         [SerializeField]
         private int playerIndex = 0;
@@ -41,6 +45,10 @@ namespace Bombaman
 
         public float Speed; // Run speed
 
+        private AudioSource audioSource;
+
+        [SerializeField] private AudioClip Kicking;
+
         public float Health { get; set; }
 
         [SerializeField] private float health = 1f;
@@ -52,6 +60,7 @@ namespace Bombaman
         [Header("Animations")]
         [SerializeField] private Animator animator;
         [SerializeField] private AnimationClip KickingClip;
+
 
         private GameSystem gameSystem;
 
@@ -80,6 +89,8 @@ namespace Bombaman
             pause = playerInput.actions["Pause"];
 
             transform.position = startPosition;
+
+            audioSource = GetComponent<AudioSource>();
 
             
 
@@ -119,7 +130,7 @@ namespace Bombaman
             }
 
 			#region PauseMenu
-            if((SceneManager.GetActiveScene().name == "1Player" || SceneManager.GetActiveScene().name == "2Player"))
+            if((SceneManager.GetActiveScene().name.ToLower().StartsWith("level") || SceneManager.GetActiveScene().name == "2Player"))
 			{
 
                 pauseMenu = FindObjectOfType<PauseMenu>();
@@ -178,6 +189,7 @@ namespace Bombaman
             if (!kicking)
             {
                 animator.SetBool("Kicking", true);
+                audioSource.PlayOneShot(Kicking);
                 kicking = true;
                 Invoke("StopKicking", animationKickDuration);
             }
