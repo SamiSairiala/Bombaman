@@ -71,6 +71,8 @@ namespace Bombaman
             }
 
             mover.Move(targetDir);
+
+            
             //if (target == null)
             //{
 
@@ -92,6 +94,19 @@ namespace Bombaman
                 return true;
             }
             return false;
+        }
+
+        protected virtual void OnTriggerEnter2D(Collider2D collision)
+        {
+            IHealth target = collision.GetComponent<Health>();
+            if(target!=null)
+            {
+                IDamageable damageable = collision.GetComponent<IDamageable>();
+                if (!target.DecreseHealth(1))
+                {
+                    damageable.Death();
+                }
+            }
         }
 
         //checks if the unit can, within 1 frame, move to a space where x & y are both a whole number.
