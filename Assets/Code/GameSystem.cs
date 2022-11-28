@@ -14,8 +14,15 @@ namespace Bombaman
 
         [SerializeField] Canvas SinglePlayerTutorial;
 
+        [Header("Player Checking")]
         public bool Player1Alive = true;
         public bool Player2Alive = true;
+        public bool Player3Alive = true;
+        public bool Player4Alive = true;
+        public bool Player1Winner = false;
+        public bool Player2Winner = false;
+        public bool Player3Winner = false;
+        public bool Player4Winner = false;
 
         private GameObject[] enemies;
 
@@ -56,12 +63,37 @@ namespace Bombaman
 			{
                 textWinner.enabled = true;
                 textWinner.text = ("Player 2 is a winner! Going to menu in 5secs.");
-                Invoke("GameOver", 5f);
+                Player2Winner = true;
+                Invoke("GameOver", 2f);
 			}
             if (SceneManager.GetActiveScene().name == "2Player" && Player2Alive == false)
             {
                 textWinner.enabled = true;
                 textWinner.text = ("Player 1 is a winner! Going to menu in 5secs.");
+                Player1Winner = true;
+                Invoke("GameOver", 2f);
+            }
+
+            // 3 Player scene
+            if (SceneManager.GetActiveScene().name == "3Player" && Player1Alive == false && Player3Alive == false)
+            {
+                textWinner.enabled = true;
+                textWinner.text = ("Player 2 is a winner! Going to menu in 5secs.");
+                Player2Winner = true;
+                Invoke("GameOver", 5f);
+            }
+            if (SceneManager.GetActiveScene().name == "3Player" && Player2Alive == false && Player3Alive == false)
+            {
+                textWinner.enabled = true;
+                textWinner.text = ("Player 1 is a winner! Going to menu in 5secs.");
+                Player1Winner = true;
+                Invoke("GameOver", 5f);
+            }
+            if (SceneManager.GetActiveScene().name == "3Player" && Player2Alive == false && Player1Alive == false)
+            {
+                textWinner.enabled = true;
+                textWinner.text = ("Player 3 is a winner! Going to menu in 5secs.");
+                Player3Winner = true;
                 Invoke("GameOver", 5f);
             }
         }
@@ -80,8 +112,8 @@ namespace Bombaman
         public void GameOver()
 		{
             pauseMenu.Paused = false;
-            DestroyAllGameObjects();
-            //SceneManager.LoadScene("GameOver");
+            Debug.Log("Going to GameOver");
+            SceneManager.LoadScene("GameOver");
             GameStateManager.Instance.Go(GameStates.StateType.GameOver);
         }
 
