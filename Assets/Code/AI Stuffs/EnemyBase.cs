@@ -26,6 +26,8 @@ namespace Bombaman
         [SerializeField] protected Pathfinder pathfinder;
         private Grid grid;
 
+        private Animator animator;
+
         [SerializeField] private float Speed = 1;
 
         public Health health;
@@ -53,6 +55,9 @@ namespace Bombaman
 
             if (pathfinder == null) { Debug.LogError("Can't find Pathfinder"); }
             if (levelOffset == null) { Debug.LogError("Can't find level");}
+
+            animator = GetComponent<Animator>();
+            if (animator == null) { Debug.LogError("Enemy can't find animator"); }
         }
 
         protected virtual void FixedUpdate()
@@ -72,6 +77,25 @@ namespace Bombaman
 
             mover.Move(targetDir);
 
+            if(Mathf.Abs(targetDir.x)>Mathf.Abs(targetDir.y))
+            {
+                if (targetDir.x > 0)
+                {
+                    if (animator.GetInteger("Direction") != 1) { animator.SetInteger("Direction", 1); }
+                } else
+                {
+                    if (animator.GetInteger("Direction") != 3) { animator.SetInteger("Direction", 3); }
+                }
+            } else
+            {
+                if(targetDir.y > 0)
+                {
+                    if (animator.GetInteger("Direction") != 0) { animator.SetInteger("Direction", 0); }
+                } else
+                {
+                    if (animator.GetInteger("Direction") != 2) { animator.SetInteger("Direction", 2); }
+                }
+            }
             
             //if (target == null)
             //{
