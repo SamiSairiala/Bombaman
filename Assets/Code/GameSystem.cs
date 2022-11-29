@@ -55,8 +55,8 @@ namespace Bombaman
 
             if (SceneManager.GetActiveScene().name.ToLower().StartsWith("level") && Player1Alive == false) // FOR SINGLEPLAYER WIN CHECKING.
             {
-                textWinner.enabled = true;
-                textWinner.text = ("Player died!");
+                //textWinner.enabled = true;
+                //textWinner.text = ("Player died!");
                 Invoke("GameOver", 2f);
             }
             if (SceneManager.GetActiveScene().name == "2Player" && Player1Alive == false)
@@ -111,9 +111,9 @@ namespace Bombaman
 
         public void GameOver()
 		{
-            pauseMenu.Paused = false;
+            //pauseMenu.Paused = false;
             Debug.Log("Going to GameOver");
-            SceneManager.LoadScene("GameOver");
+            //SceneManager.LoadScene("GameOver");
             GameStateManager.Instance.Go(GameStates.StateType.GameOver);
         }
 

@@ -20,7 +20,7 @@ namespace Bombaman
         {
             AddTargetState(StateType.MainMenu);
             AddTargetState(StateType.InGame);
-            AddTargetState(StateType.Multiplayer);
+            AddTargetState(StateType.Lobby);
         }
     }
 }

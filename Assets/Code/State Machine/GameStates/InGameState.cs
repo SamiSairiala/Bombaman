@@ -23,7 +23,6 @@ namespace Bombaman
         {
             AddTargetState(StateType.Options);
             AddTargetState(StateType.GameOver);
-            AddTargetState(StateType.InGame);
         }
 
         public override void Activate(int levelIndex = 0, bool forceLoad = false)

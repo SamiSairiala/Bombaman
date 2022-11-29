@@ -14,7 +14,13 @@ namespace Bombaman
 
         public void Replay()
         {
-            GameStateManager.Instance.Go(GameStateManager.Instance.PreviousState.Type);
+            if(GameStateManager.Instance.PreviousState.Type == StateType.Multiplayer)
+            {
+                GameStateManager.Instance.Go(StateType.Lobby);
+            } else
+            {
+                GameStateManager.Instance.Go(StateType.InGame);
+            }
         }
 
 
