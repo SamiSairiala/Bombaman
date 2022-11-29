@@ -34,7 +34,7 @@ namespace Bombaman
 			player = FindObjectOfType<Character>();
 
 			textWinner.enabled = false;
-			GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+			players = GameObject.FindGameObjectsWithTag("Player");
 			Debug.Log(players.Length + "that many players");
 		}
 
@@ -77,6 +77,34 @@ namespace Bombaman
 					textWinner.enabled = true;
 					textWinner.text = ("Player 1 is a winner! Going to menu in 5secs.");
 					Debug.Log("Player 1 won.");
+					Player1Winner = true;
+					Invoke("GameOver", 2f);
+				}
+			}
+
+			if(players.Length == 3)
+			{
+				if (SceneManager.GetActiveScene().name == "2Player" && Player1Alive == false && Player3Alive == false)
+				{
+					textWinner.enabled = true;
+					textWinner.text = ("Player 2 is a winner! Going to menu in 5secs.");
+					Debug.Log("Player 2 won.");
+					Player2Winner = true;
+					Invoke("GameOver", 2f);
+				}
+				if (SceneManager.GetActiveScene().name == "2Player" && Player2Alive == false && Player3Alive == false)
+				{
+					textWinner.enabled = true;
+					textWinner.text = ("Player 1 is a winner! Going to menu in 5secs.");
+					Debug.Log("Player 1 won.");
+					Player1Winner = true;
+					Invoke("GameOver", 2f);
+				}
+				if (SceneManager.GetActiveScene().name == "2Player" && Player1Alive == false && Player2Alive == false)
+				{
+					textWinner.enabled = true;
+					textWinner.text = ("Player 3 is a winner! Going to menu in 5secs.");
+					Debug.Log("Player 3 won.");
 					Player1Winner = true;
 					Invoke("GameOver", 2f);
 				}

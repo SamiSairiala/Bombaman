@@ -186,6 +186,18 @@ namespace Bombaman
                 startPosition = GameObject.FindGameObjectWithTag("Spawn2").transform.position;
                 
             }
+            if (playerID == 3)
+            {
+                transform.position = GameObject.Find("Spawn3").transform.position;
+                startPosition = GameObject.FindGameObjectWithTag("Spawn3").transform.position;
+
+            }
+            if (playerID == 4)
+            {
+                transform.position = GameObject.Find("Spawn4").transform.position;
+                startPosition = GameObject.FindGameObjectWithTag("Spawn4").transform.position;
+
+            }
         }
 
         private void Kick()
