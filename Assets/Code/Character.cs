@@ -124,13 +124,17 @@ namespace Bombaman
             }
             mover.Setup(Speed);
 
-            if(SceneManager.GetActiveScene().name == "MainMenu" || SceneManager.GetActiveScene().name == "Lobby")
+            if(SceneManager.GetActiveScene().name == "Lobby")
 			{
                 DontDestroyOnLoad(this.gameObject);
             }
+            if (SceneManager.GetActiveScene().name == "MainMenu")
+            {
+                Destroy(this.gameObject);
+            }
 
-			#region PauseMenu
-            if((SceneManager.GetActiveScene().name.ToLower().StartsWith("level") || SceneManager.GetActiveScene().name == "2Player"))
+            #region PauseMenu
+            if ((SceneManager.GetActiveScene().name.ToLower().StartsWith("level") || SceneManager.GetActiveScene().name == "2Player"))
 			{
 
                 pauseMenu = FindObjectOfType<PauseMenu>();
@@ -245,7 +249,7 @@ namespace Bombaman
             GetComponent<BombController>().enabled = false;
             Debug.Log("Player " + playerID + " Died!");
 
-            if(SceneManager.GetActiveScene().name == "1Player")
+            if(SceneManager.GetActiveScene().name.ToLower().StartsWith("level"))
 			{
                 gameSystem.Player1Alive = false;
             }
@@ -260,6 +264,14 @@ namespace Bombaman
 				{
                     gameSystem.Player2Alive = false;
 				}
+                if (playerID == 3)
+                {
+                    gameSystem.Player3Alive = false;
+                }
+                if (playerID == 4)
+                {
+                    gameSystem.Player4Alive = false;
+                }
             }
 
             Destroy(gameObject);

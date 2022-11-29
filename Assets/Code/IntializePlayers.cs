@@ -69,8 +69,9 @@ namespace Bombaman
             Destroy(this.gameObject);
             if (GameStateManager.Instance.CurrentState.Type == StateType.Lobby)
             {
-
-
+                Destroy(GameObject.FindGameObjectWithTag("Player"));
+                Destroy(GameObject.FindGameObjectWithTag("Player"));
+                Destroy(GameObject.FindGameObjectWithTag("Player"));
                 Destroy(GameObject.FindGameObjectWithTag("Player"));
                 Destroy(GameObject.FindGameObjectWithTag("EventSystem"));
             }
@@ -84,22 +85,25 @@ namespace Bombaman
             if(PlayerCount == 1 && Ready == true && SceneManager.GetActiveScene().name == "MainMenu")
 			{
                 //SceneManager.LoadScene("1Player");
+                Destroy(GameObject.FindGameObjectWithTag("Player"));
                 GameStateManager.Instance.Go(GameStates.StateType.InGame);// LOAD SINGLEPLAYER
             }
-            if (PlayerCount == 2 && Ready == true && GameStateManager.Instance.CurrentState.Type == StateType.Lobby) 
+            if (PlayerCount == 2 && Ready == true && GameStateManager.Instance.CurrentState.Type == (StateType.Lobby)) 
             {
                 Debug.Log("Going to 2 Player");
-				SceneManager.LoadScene("2Player"); // LOAD 2 PLAYER SCENE.
-				//GameStateManager.Instance.Go(GameStates.StateType.Multiplayer);
+				/*SceneManager.LoadScene("2Player");*/ // LOAD 2 PLAYER SCENE.
+				GameStateManager.Instance.Go(GameStates.StateType.Multiplayer);
             }
-            if (PlayerCount == 3 && Ready == true)
+            if (PlayerCount == 3 && Ready == true && GameStateManager.Instance.CurrentState.Type == (StateType.Lobby))
             {
                 // LOAD 3 PLAYER
+                GameStateManager.Instance.Go(GameStates.StateType.Multiplayer);
 
             }
-            if (PlayerCount == 4 && Ready == true && GameStateManager.Instance.CurrentState.Equals(StateType.Lobby)/* && SceneManager.GetActiveScene().name == "Lobby"*/)
+            if (PlayerCount == 4 && Ready == true && GameStateManager.Instance.CurrentState.Type == (StateType.Lobby))/* && SceneManager.GetActiveScene().name == "Lobby"*/
             {
                 // LOAD 4 PLAYER
+                GameStateManager.Instance.Go(GameStates.StateType.Multiplayer);
 
             }
         }

@@ -17,10 +17,10 @@ namespace Bombaman
             get { return StateType.Lobby; }
         }
 
-        public override bool IsAdditive
-        {
-            get { return true; }
-        }
+        //public override bool IsAdditive
+        //{
+        //    get { return true; }
+        //}
 
         public LobbyState() : base()
         {

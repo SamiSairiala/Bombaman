@@ -11,10 +11,10 @@ namespace Bombaman
 
         public override StateType Type { get { return StateType.GameOver; } }
 
-        public override bool IsAdditive
-        {
-            get { return true; }
-        }
+        //public override bool IsAdditive
+        //{
+        //    get { return true; }
+        //}
 
         public GameOverState() : base()
         {

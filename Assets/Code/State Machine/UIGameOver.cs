@@ -10,6 +10,8 @@ namespace Bombaman
         public void BackToMenu()
         {
             GameStateManager.Instance.Go(StateType.MainMenu);
+            Destroy(GameObject.FindGameObjectWithTag("Player"));
+            Destroy(GameObject.FindGameObjectWithTag("EventSystem"));
         }
 
         public void Replay()
@@ -17,6 +19,8 @@ namespace Bombaman
             if(GameStateManager.Instance.PreviousState.Type == StateType.Multiplayer)
             {
                 GameStateManager.Instance.Go(StateType.Lobby);
+                Destroy(GameObject.FindGameObjectWithTag("Player"));
+                Destroy(GameObject.FindGameObjectWithTag("EventSystem"));
             } else
             {
                 GameStateManager.Instance.Go(StateType.InGame);
