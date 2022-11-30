@@ -47,6 +47,8 @@ namespace Bombaman
 
         private AudioSource audioSource;
 
+        private AudioSteps audioStepScript;
+
         [SerializeField] private AudioClip Kicking;
 
         public float Health { get; set; }
@@ -92,7 +94,7 @@ namespace Bombaman
 
             audioSource = GetComponent<AudioSource>();
 
-            
+            audioStepScript = GetComponent<AudioSteps>();
 
             animator = GetComponent<Animator>();
             isReady = true;
@@ -226,6 +228,7 @@ namespace Bombaman
             if (RBMover.GridMovement == false)
             {
                 mover.Move(input);
+                audioStepScript.PlaySteps();
             }
 
 

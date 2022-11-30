@@ -296,7 +296,7 @@ AudioSource:
   m_GameObject: {fileID: 4388893563854228814}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 6ddac6740e6087b4d90aaa248382c256, type: 2}
   m_audioClip: {fileID: 8300000, guid: 8a3d773d074bf17449d9f78ce5386bfb, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -403,6 +403,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-421645314776514099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4388893563854228814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b719cc916b725684fabc670086018dfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StepClips:
+  - {fileID: 8300000, guid: 1976dfd4d25c1ed45a5735feca3b373d, type: 3}
+  - {fileID: 8300000, guid: 0d0e9743af066fc4fbd054e7a39f2285, type: 3}
+  - {fileID: 8300000, guid: ea39913ebb450bb4db6b71f0bb8d5350, type: 3}
+  - {fileID: 8300000, guid: 5367925378542d4458e333b1a8d8b4ee, type: 3}
 --- !u!114 &4388893563854228822 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5543069182381772242, guid: 59db96775738f8448b77a3006625a0da, type: 3}
