@@ -126,6 +126,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 10
+  start: {fileID: 0}
+  middle: {fileID: 0}
+  end: {fileID: 0}
+  EndSprite: {fileID: 387981979, guid: cbf498e1d0de3a54792e17e297c3e0e2, type: 3}
 --- !u!50 &-6020630047228300539
 Rigidbody2D:
   serializedVersion: 4

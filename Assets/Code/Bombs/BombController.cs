@@ -25,7 +25,7 @@ namespace Bombaman
 
         [Header("Explosion")]
         [SerializeField] private Explosion explosionPrefab; // The prefab must have explosion script attached to it.
-        [SerializeField] float explosionDuration = 1f; // How long the explosion lasts.
+        [SerializeField] public float explosionDuration = 1f; // How long the explosion lasts.
         public int explosionRadius = 1; // How big the explosion or how many tiles it spreads in tiles.
 
         [Header("Destructible")]
@@ -43,6 +43,8 @@ namespace Bombaman
         private SpawnPowerups powerupSpawn;
 
         public ParticleSystem explosionParticle;
+
+        [SerializeField] private GameObject explosionMiddle;
 
         public float BombFuse = 3f; // how long til the bomb explodes.
         // Start is called before the first frame update
@@ -120,6 +122,8 @@ namespace Bombaman
             if(bomb != null)
             {
                 StartExplosion(position, bomb);
+                
+                
             }
             
 
@@ -144,7 +148,8 @@ namespace Bombaman
 
         public void StartExplosion(Vector2 position, GameObject bomb)
         {
-            
+
+            Instantiate(explosionMiddle, position, Quaternion.identity);
             Explode(position, Vector2.up, explosionRadius); // Directions in which to spawn explosions.
             Explode(position, Vector2.down, explosionRadius);
             Explode(position, Vector2.left, explosionRadius);
@@ -154,6 +159,12 @@ namespace Bombaman
             {
                 Destroy(bomb.gameObject);
             }
+            
+
+        }
+
+        void InstantiateMiddle(Vector2 position)
+		{
             
         }
 
@@ -178,7 +189,7 @@ namespace Bombaman
                 ClearDestructible(position);
                 return;
             }
-
+            
             Explosion explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
             explosion.SetActiveRenderer(lenght > 1 ? explosion.middle : explosion.end);
             explosion.SetDirection(direction);

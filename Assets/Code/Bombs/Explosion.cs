@@ -13,7 +13,16 @@ namespace Bombaman
         public AnimatedSpriteRenderer middle;
         public AnimatedSpriteRenderer end;
 
-        public void DestroyAfter(float seconds)
+        private SpriteRenderer spriteRenderer;
+
+        [SerializeField] private Sprite EndSprite;
+
+
+		private void Awake()
+		{
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+		public void DestroyAfter(float seconds)
         {
             Destroy(gameObject, seconds);
         }
@@ -39,7 +48,13 @@ namespace Bombaman
         public void SetActiveRenderer(AnimatedSpriteRenderer renderer)
 		{
             start.enabled = renderer == start;
+            middle.enabled = renderer == middle;
             end.enabled = renderer == end;
+		}
+
+        public void SetEndSprite()
+		{
+            spriteRenderer.sprite = EndSprite;
 		}
 
         public void SetDirection(Vector2 direction)

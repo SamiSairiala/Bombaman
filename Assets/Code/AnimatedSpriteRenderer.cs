@@ -36,7 +36,7 @@ namespace Bombaman
 
         private void Start()
         {
-            InvokeRepeating(nameof(NextFrame), animationTime, animationTime);
+            InvokeRepeating(nameof(NextFrame), 0, animationTime);
         }
 
         private void NextFrame()
@@ -52,7 +52,7 @@ namespace Bombaman
             {
                 spriteRenderer.sprite = idleSprite;
             }
-            else if(animationFrame >= 0 && animationFrame < animationSprites.Length)
+            else if(animationFrame >= 0 && animationFrame > animationSprites.Length)
             {
                 spriteRenderer.sprite = animationSprites[animationFrame];
             }

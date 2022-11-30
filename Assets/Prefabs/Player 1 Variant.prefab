@@ -276,6 +276,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5543069182381772242, guid: 59db96775738f8448b77a3006625a0da, type: 3}
+      propertyPath: explosionMiddle
+      value: 
+      objectReference: {fileID: 6583440529949507981, guid: b72d3a188c97e4d4aaf0306d964387a4, type: 3}
+    - target: {fileID: 5543069182381772242, guid: 59db96775738f8448b77a3006625a0da, type: 3}
       propertyPath: explosionParticle
       value: 
       objectReference: {fileID: 4082646573335798336, guid: 79464bc88ee32064c96a1dde9445149e, type: 3}
