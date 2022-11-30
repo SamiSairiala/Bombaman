@@ -42,6 +42,8 @@ namespace Bombaman
 
         private SpawnPowerups powerupSpawn;
 
+        public ParticleSystem explosionParticle;
+
         public float BombFuse = 3f; // how long til the bomb explodes.
         // Start is called before the first frame update
         void Start()
@@ -201,10 +203,13 @@ namespace Bombaman
             if(tile != null)
             {
                 BreakableTiles.SetTile(cell, null); // Clears the tile bomb hits.
+                Instantiate(explosionParticle, position, Quaternion.identity);            
                 //Debug.Log("Position is " + position);
                 powerupSpawn.SpawnPowerup(position);
+                
             }
         }
+
 
 
         private void ChangeBombStatus()
