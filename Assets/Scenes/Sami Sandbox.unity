@@ -288,6 +288,49 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccaa0869479ff7e439f5de5a7b9d0d60, type: 3}
+--- !u!1 &469083622 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2097973553009138272, guid: ccaa0869479ff7e439f5de5a7b9d0d60, type: 3}
+  m_PrefabInstance: {fileID: 274791880}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &469083626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469083622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7bb9acb2cffc5f45abddc238a0ad9b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PositionIntKeys: []
+  m_PositionIntValues: 
+  m_PositionStringKeys: []
+  m_PositionStringValues: []
+  m_PositionFloatKeys: []
+  m_PositionFloatValues: []
+  m_PositionDoubleKeys: []
+  m_PositionDoubleValues: []
+  m_PositionObjectKeys: []
+  m_PositionObjectValues: []
+  m_PositionColorKeys: []
+  m_PositionColorValues: []
+--- !u!114 &469083627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469083622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29cff538c195c249b69c6f2236de67b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library: []
+  m_SpriteLibraryAsset: {fileID: 0}
 --- !u!1001 &557245917
 PrefabInstance:
   m_ObjectHideFlags: 0
