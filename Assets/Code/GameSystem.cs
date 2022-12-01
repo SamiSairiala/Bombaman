@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.InputSystem;
+
 
 
 namespace Bombaman
@@ -26,6 +28,8 @@ namespace Bombaman
 
 		private GameObject[] enemies;
 		private GameObject[] players;
+
+		private DeviceType deviceType;
 
 		[SerializeField] PauseMenu pauseMenu;
 		// Start is called before the first frame update
@@ -54,6 +58,7 @@ namespace Bombaman
 			if (SceneManager.GetActiveScene().name.ToLower().StartsWith("level") && GameObject.FindGameObjectWithTag("Player")) // Check if player has spawned in yet.
 			{
 				SinglePlayerTutorial.enabled = false;
+				
 			}
 
 			if (SceneManager.GetActiveScene().name.ToLower().StartsWith("level") && Player1Alive == false) // FOR SINGLEPLAYER WIN CHECKING.
