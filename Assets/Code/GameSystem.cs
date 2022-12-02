@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 
 
@@ -12,6 +13,7 @@ namespace Bombaman
 	public class GameSystem : MonoBehaviour
 	{
 		[SerializeField] private TextMeshProUGUI textWinner;
+		[SerializeField] private GameObject PlayerButtons;
 		private Character player;
 
 		[SerializeField] Canvas SinglePlayerTutorial;
@@ -26,12 +28,27 @@ namespace Bombaman
 		public bool Player3Winner = false;
 		public bool Player4Winner = false;
 
+		[SerializeField] private Sprite JoyStick;
+		[SerializeField] private Sprite WASD;
+		[SerializeField] private Sprite X;
+		[SerializeField] private Sprite Square;
+		[SerializeField] private Sprite E;
+		[SerializeField] private Sprite Space;
+
+		[Header("Player1")]
+		[SerializeField] private GameObject Player1;
+		[SerializeField] private Image Movement1;
+		[SerializeField] private Image Kick1;
+		[SerializeField] private Image Bomb1;
+
 		private GameObject[] enemies;
 		private GameObject[] players;
 
 		private DeviceType deviceType;
 
 		[SerializeField] PauseMenu pauseMenu;
+
+		
 		// Start is called before the first frame update
 		void Start()
 		{
@@ -40,6 +57,32 @@ namespace Bombaman
 			textWinner.enabled = false;
 			players = GameObject.FindGameObjectsWithTag("Player");
 			Debug.Log(players.Length + "that many players");
+		}
+
+
+		void OnPlayerJoined(PlayerInput playerInput)
+		{
+			var device = playerInput.devices[0];
+			if (device.name.Contains("DualShock"))
+			{
+				Movement1.sprite = JoyStick;
+				Kick1.sprite = Square;
+				Bomb1.sprite = X;
+			}
+			if (device.name.Contains("Keyboard"))
+			{
+				Movement1.sprite = WASD;
+				Kick1.sprite = E;
+				Bomb1.sprite = Space;
+			}
+
+			Invoke("DisableShowingofButtons", 3f);
+		}
+
+
+		void DisableShowingofButtons()
+		{
+			PlayerButtons.SetActive(false);
 		}
 
 		// Update is called once per frame
