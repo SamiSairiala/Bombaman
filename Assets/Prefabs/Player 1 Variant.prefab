@@ -263,6 +263,14 @@ PrefabInstance:
       propertyPath: bombController
       value: 
       objectReference: {fileID: 4388893563854228822}
+    - target: {fileID: 5543069182381772238, guid: 59db96775738f8448b77a3006625a0da, type: 3}
+      propertyPath: AnimController1
+      value: 
+      objectReference: {fileID: 9100000, guid: 02cc85db43693494385cbed5552b64c0, type: 2}
+    - target: {fileID: 5543069182381772238, guid: 59db96775738f8448b77a3006625a0da, type: 3}
+      propertyPath: AnimController2
+      value: 
+      objectReference: {fileID: 9100000, guid: 4b391cc2684a55f42aa10ff4380d1223, type: 2}
     - target: {fileID: 5543069182381772242, guid: 59db96775738f8448b77a3006625a0da, type: 3}
       propertyPath: BombFuse
       value: 3
@@ -401,7 +409,7 @@ Animator:
   m_GameObject: {fileID: 4388893563854228814}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4b391cc2684a55f42aa10ff4380d1223, type: 2}
+  m_Controller: {fileID: 9100000, guid: 02cc85db43693494385cbed5552b64c0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

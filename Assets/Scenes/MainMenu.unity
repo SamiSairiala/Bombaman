@@ -254,12 +254,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 428654918}
+    m_SelectOnDown: {fileID: 2127640708}
+    m_SelectOnLeft: {fileID: 210114445}
+    m_SelectOnRight: {fileID: 210114445}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -592,12 +592,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 1427101954}
+    m_SelectOnDown: {fileID: 210114445}
+    m_SelectOnLeft: {fileID: 428654918}
+    m_SelectOnRight: {fileID: 428654918}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1103,6 +1103,28 @@ MonoBehaviour:
   PlayerCount: 0
   text: {fileID: 0}
   Ready: 0
+  JoyStick: {fileID: 0}
+  WASD: {fileID: 0}
+  X: {fileID: 0}
+  Square: {fileID: 0}
+  E: {fileID: 0}
+  Space: {fileID: 0}
+  Player1: {fileID: 0}
+  Movement1: {fileID: 0}
+  Kick1: {fileID: 0}
+  Bomb1: {fileID: 0}
+  Player2: {fileID: 0}
+  Movement2: {fileID: 0}
+  Kick2: {fileID: 0}
+  Bomb2: {fileID: 0}
+  Player3: {fileID: 0}
+  Movement3: {fileID: 0}
+  Kick3: {fileID: 0}
+  Bomb3: {fileID: 0}
+  Player4: {fileID: 0}
+  Movement4: {fileID: 0}
+  Kick4: {fileID: 0}
+  Bomb4: {fileID: 0}
 --- !u!1 &1151653317
 GameObject:
   m_ObjectHideFlags: 0
@@ -1426,12 +1448,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 2127640708}
+    m_SelectOnDown: {fileID: 428654918}
+    m_SelectOnLeft: {fileID: 1427101954}
+    m_SelectOnRight: {fileID: 1427101954}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1735,12 +1757,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 210114445}
+    m_SelectOnDown: {fileID: 1427101954}
+    m_SelectOnLeft: {fileID: 2127640708}
+    m_SelectOnRight: {fileID: 2127640708}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}

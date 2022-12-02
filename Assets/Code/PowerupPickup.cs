@@ -10,6 +10,7 @@ namespace Bombaman
         {
             BlastRadius,
             SpeedIncrease,
+            MaxBombsIncrease,
         }
 
 
@@ -17,15 +18,19 @@ namespace Bombaman
 
         private void Awake()
         {
-            int random = Random.Range(0, 2);
+            int random = Random.Range(0, 3);
             if (random == 0)
             {
                 type = ItemType.BlastRadius;
             }
-            else
+            if(random == 1)
             {
                 type = ItemType.SpeedIncrease;
             }
+            if(random == 2)
+			{
+                type = ItemType.MaxBombsIncrease;
+			}
 
         }
 
@@ -40,6 +45,10 @@ namespace Bombaman
 
                 case ItemType.SpeedIncrease:
                     player.GetComponent<Character>().Speed += 0.5f;
+                    break;
+
+                case ItemType.MaxBombsIncrease:
+                    player.GetComponent<BombController>().MaxBombs++;
                     break;
             }
         }

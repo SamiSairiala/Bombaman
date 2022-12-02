@@ -71,7 +71,10 @@ namespace Bombaman
         public RigidbodyMover RBMover;
         private bool isReady = false;
 
-        
+        [SerializeField] private RuntimeAnimatorController AnimController1;
+        [SerializeField] private RuntimeAnimatorController AnimController2;
+
+
 
         // Start is called before the first frame update
         private void Start()
@@ -186,6 +189,7 @@ namespace Bombaman
 			{
                 transform.position = GameObject.Find("Spawn2").transform.position; 
                 startPosition = GameObject.FindGameObjectWithTag("Spawn2").transform.position;
+                animator.runtimeAnimatorController = AnimController2;
                 
             }
             if (playerID == 3)

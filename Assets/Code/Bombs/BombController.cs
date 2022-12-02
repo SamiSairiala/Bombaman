@@ -46,7 +46,11 @@ namespace Bombaman
 
         [SerializeField] private GameObject explosionMiddle;
 
-        public float BombFuse = 3f; // how long til the bomb explodes.
+        public int MaxBombs = 3;
+
+        public int CurrentBombsActive = 0;
+
+        public float BombFuse = 5f; // how long til the bomb explodes.
         // Start is called before the first frame update
         void Start()
         {
@@ -73,9 +77,10 @@ namespace Bombaman
         void Update()
         {
             
-            if (bomb.WasPerformedThisFrame() && isDroppingBomb == false)
+            if (bomb.WasPerformedThisFrame() && isDroppingBomb == false && CurrentBombsActive != MaxBombs)
             {
                 StartCoroutine(PlaceBomb());
+                CurrentBombsActive++;
             }
             if (bomb.WasPerformedThisFrame() && isDroppingBomb == true)
             {
@@ -157,6 +162,7 @@ namespace Bombaman
             Exploded = true;
             if(bomb != null)
             {
+                CurrentBombsActive--;
                 Destroy(bomb.gameObject);
             }
             

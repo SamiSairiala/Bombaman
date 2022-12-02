@@ -156,7 +156,7 @@ namespace Bombaman
                 hit = true;
 
                 controller.StartExplosion(transform.position, gameObject);
-                
+                controller.CurrentBombsActive--;
 
                 
             }
