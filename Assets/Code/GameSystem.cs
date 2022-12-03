@@ -48,6 +48,8 @@ namespace Bombaman
 
 		[SerializeField] PauseMenu pauseMenu;
 
+		[SerializeField] private GameObject EnableExitObject; // Assign in everylevel a exit gameobject which has a trigger and tag name of exit here.
+
 		
 		// Start is called before the first frame update
 		void Start()
@@ -95,7 +97,9 @@ namespace Bombaman
 			{
 				textWinner.enabled = true;
 				textWinner.text = ("Player won! Going to menu in 5secs.");
-				Invoke("GameOver", 5f); //TODO: Load next singleplayer scene.
+				EnableExitObject.SetActive(true);
+				// LOAD DIFFRENT SCENE FROM ExitTrigger Script.
+				/*Invoke("GameOver", 5f);*/ //TODO: Load next singleplayer scene.
 			}
 
 			if (SceneManager.GetActiveScene().name.ToLower().StartsWith("level") && GameObject.FindGameObjectWithTag("Player")) // Check if player has spawned in yet.

@@ -6,7 +6,19 @@ namespace Bombaman
 {
     public class PowerupPickup : MonoBehaviour
     {
-        public enum ItemType // Powerup types
+
+        private SpriteRenderer spriteRend;
+
+        [SerializeField] private Sprite BlastRadiusSprite;
+        [SerializeField] private Sprite SpeedIncreaseSprite;
+        [SerializeField] private Sprite MaxBombsSprite;
+
+		private void Start()
+		{
+            
+		}
+
+		public enum ItemType // Powerup types
         {
             BlastRadius,
             SpeedIncrease,
@@ -18,19 +30,23 @@ namespace Bombaman
 
         private void Awake()
         {
+            spriteRend = GetComponent<SpriteRenderer>();
             int random = Random.Range(0, 3);
             if (random == 0)
             {
                 type = ItemType.BlastRadius;
+                spriteRend.sprite = BlastRadiusSprite;
             }
             if(random == 1)
             {
                 type = ItemType.SpeedIncrease;
+                spriteRend.sprite = SpeedIncreaseSprite;
             }
             if(random == 2)
 			{
                 type = ItemType.MaxBombsIncrease;
-			}
+                spriteRend.sprite = MaxBombsSprite;
+            }
 
         }
 
