@@ -14,7 +14,7 @@ namespace Bombaman
         }
         public void Back()
         {
-            GameStateManager.Instance.GoBack();        
+            GameStateManager.Instance.GoBack();
         }
     }
 }
