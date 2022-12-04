@@ -101,6 +101,12 @@ namespace Bombaman
 
             animator = GetComponent<Animator>();
             isReady = true;
+
+            if(SceneManager.GetActiveScene().name == "level1")
+			{
+                transform.position = GameObject.Find("Spawn1").transform.position;
+                startPosition = GameObject.FindGameObjectWithTag("Spawn1").transform.position;
+            }
         }
 
         public int GetPlayerIndex()
@@ -141,7 +147,7 @@ namespace Bombaman
             #region PauseMenu
             if ((SceneManager.GetActiveScene().name.ToLower().StartsWith("level") || SceneManager.GetActiveScene().name == "2Player"))
 			{
-
+                
                 pauseMenu = FindObjectOfType<PauseMenu>();
                 if (pause.WasPerformedThisFrame())
                 {
@@ -171,6 +177,9 @@ namespace Bombaman
             {
                 Loaded = true;
                 pauseMenu = FindObjectOfType<PauseMenu>();
+                gameSystem = FindObjectOfType<GameSystem>();
+                transform.position = GameObject.Find("Spawn1").transform.position;
+                startPosition = GameObject.FindGameObjectWithTag("Spawn1").transform.position;
                 bombController.enabled = true;
             }
         }
@@ -270,6 +279,7 @@ namespace Bombaman
 
             if(SceneManager.GetActiveScene().name.ToLower().StartsWith("level"))
 			{
+                gameSystem = FindObjectOfType<GameSystem>();
                 gameSystem.Player1Alive = false;
             }
 

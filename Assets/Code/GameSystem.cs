@@ -28,6 +28,8 @@ namespace Bombaman
 		public bool Player3Winner = false;
 		public bool Player4Winner = false;
 
+		public bool Player1SingleWinner = false;
+
 		[SerializeField] private Sprite JoyStick;
 		[SerializeField] private Sprite WASD;
 		[SerializeField] private Sprite X;
@@ -96,7 +98,7 @@ namespace Bombaman
 			if (SceneManager.GetActiveScene().name.ToLower().StartsWith("level") && enemies.Length == 0) // FOR SINGLEPLAYER WIN CHECKING.
 			{
 				textWinner.enabled = true;
-				textWinner.text = ("Player won! Going to menu in 5secs.");
+				textWinner.text = ("");
 				EnableExitObject.SetActive(true);
 				FindObjectOfType<ExitTrigger>().ChangeSprite();
 				// LOAD DIFFRENT SCENE FROM ExitTrigger Script.

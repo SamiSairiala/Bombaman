@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Bombaman
 {
@@ -25,10 +26,16 @@ namespace Bombaman
 
 		private void OnTriggerEnter2D(Collider2D collision)
 		{
-			if(collision.tag == "Player")
+			if(collision.tag == "Player" && SceneManager.GetActiveScene().name == "level0")
 			{
-                // TODO: LOAD DIFFRENT SCENE.
+                SceneManager.LoadScene("level1");// TODO: LOAD DIFFRENT SCENE.
 			}
-		}
+            if (collision.tag == "Player" && SceneManager.GetActiveScene().name == "level1")
+            {
+                Debug.Log("Finished level 2");
+                FindObjectOfType<GameSystem>().Player1SingleWinner = true;
+                SceneManager.LoadScene("GameOver");// TODO: LOAD DIFFRENT SCENE.
+            }
+        }
 	}
 }

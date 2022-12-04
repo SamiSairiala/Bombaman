@@ -16,6 +16,8 @@ namespace Bombaman
         private bool Player3IsWinner = false;
         private bool Player4IsWinner = false;
 
+        public bool Player1SingleIsWinner = false;
+
         private GameObject textHolder;
         private TextMeshProUGUI content;
         
@@ -27,6 +29,15 @@ namespace Bombaman
         // Update is called once per frame
         void Update()
         {
+
+            if(SceneManager.GetActiveScene().name == "level1")
+			{
+                DontDestroyOnLoad(this.gameObject);
+                if(gameSystem.Player1SingleWinner == true)
+				{
+                    Player1SingleIsWinner = true;
+				}
+            }
             
             if(SceneManager.GetActiveScene().name == "2Player" || SceneManager.GetActiveScene().name == "3Player")
 			{
@@ -68,6 +79,10 @@ namespace Bombaman
                 {
                     content.text = ("Player 4 Won!");
                 }
+                if(Player1SingleIsWinner == true)
+				{
+                    content.text = ("Player won!");
+				}
                 
 			}
         }
