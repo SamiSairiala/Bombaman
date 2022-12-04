@@ -208,7 +208,7 @@ namespace Bombaman
 		{
 			pauseMenu.Paused = false;
 			DestroyAllGameObjects();
-			//SceneManager.LoadScene("MainMenu");
+			SceneManager.LoadScene("MainMenu");
 			GameStateManager.Instance.Go(GameStates.StateType.MainMenu);
 		}
 

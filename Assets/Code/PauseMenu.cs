@@ -30,6 +30,11 @@ namespace Bombaman
 			
 		}
 
+		public void QuitGame()
+		{
+			Application.Quit();
+		}
+
 
 		public void PauseUnPause()
 		{
