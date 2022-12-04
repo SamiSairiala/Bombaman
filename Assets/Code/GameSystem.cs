@@ -98,6 +98,7 @@ namespace Bombaman
 				textWinner.enabled = true;
 				textWinner.text = ("Player won! Going to menu in 5secs.");
 				EnableExitObject.SetActive(true);
+				FindObjectOfType<ExitTrigger>().ChangeSprite();
 				// LOAD DIFFRENT SCENE FROM ExitTrigger Script.
 				/*Invoke("GameOver", 5f);*/ //TODO: Load next singleplayer scene.
 			}

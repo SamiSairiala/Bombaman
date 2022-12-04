@@ -291,6 +291,10 @@ PrefabInstance:
       propertyPath: explosionParticle
       value: 
       objectReference: {fileID: 4082646573335798336, guid: 79464bc88ee32064c96a1dde9445149e, type: 3}
+    - target: {fileID: 5543069182381772242, guid: 59db96775738f8448b77a3006625a0da, type: 3}
+      propertyPath: WallLayerMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59db96775738f8448b77a3006625a0da, type: 3}
 --- !u!4 &4388893563854228812 stripped

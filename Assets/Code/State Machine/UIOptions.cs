@@ -10,10 +10,11 @@ namespace Bombaman
         public void QuitGame()
         {
             GameStateManager.Instance.Go(StateType.MainMenu);
+            
         }
         public void Back()
         {
-            GameStateManager.Instance.GoBack();
+            GameStateManager.Instance.GoBack();        
         }
     }
 }

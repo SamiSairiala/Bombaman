@@ -11,6 +11,7 @@ namespace Bombaman
     public class BombController : MonoBehaviour
     {
         public LayerMask explosionLayerMask;
+        public LayerMask WallLayerMask;
 
         public PlayerInput playerInput;
         private InputAction bomb;
@@ -195,7 +196,12 @@ namespace Bombaman
                 ClearDestructible(position);
                 return;
             }
-            
+            if (Physics2D.OverlapBox(position, Vector2.one / 2f, 0f, WallLayerMask))
+            {
+                
+                return;
+            }
+
             Explosion explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
             explosion.SetActiveRenderer(lenght > 1 ? explosion.middle : explosion.end);
             explosion.SetDirection(direction);

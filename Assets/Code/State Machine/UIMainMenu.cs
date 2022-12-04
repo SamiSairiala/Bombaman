@@ -15,16 +15,19 @@ namespace Bombaman
         public void Lobby()
         {
             GameStateManager.Instance.Go(StateType.Lobby);
+           
         }
 
         public void Options()
         {
             GameStateManager.Instance.Go(StateType.Options);
+            GameObject.FindGameObjectWithTag("EventSystem").SetActive(false);
         }
 
         public void QuitGame()
         {
             Application.Quit();
         }
+
     }
 }
