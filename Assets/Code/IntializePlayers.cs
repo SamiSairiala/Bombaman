@@ -28,6 +28,9 @@ namespace Bombaman
 		[SerializeField] private Sprite Square;
 		[SerializeField] private Sprite E;
 		[SerializeField] private Sprite Space;
+		[SerializeField] private Sprite XXbox;
+		[SerializeField] private Sprite A;
+		
 
 		[Header("Player1")]
 		[SerializeField] private GameObject Player1;
@@ -103,6 +106,12 @@ namespace Bombaman
 					Kick1.sprite = E;
 					Bomb1.sprite = Space;
 				}
+				if (device.name.Contains("XInput"))
+				{
+					Movement1.sprite = JoyStick;
+					Kick1.sprite = XXbox;
+					Bomb1.sprite = A;
+				}
 			}
 			if (PlayerCount == 2 && playerInput.gameObject.GetComponent<Character>().playerID == 2)
 			{
@@ -118,6 +127,12 @@ namespace Bombaman
 					Movement2.sprite = JoyStick;
 					Kick2.sprite = Square;
 					Bomb2.sprite = X;
+				}
+				if (device.name.Contains("XInput"))
+				{
+					Movement2.sprite = JoyStick;
+					Kick2.sprite = XXbox;
+					Bomb2.sprite = A;
 				}
 			}
 			if (PlayerCount == 3 && playerInput.gameObject.GetComponent<Character>().playerID == 3)
@@ -135,6 +150,12 @@ namespace Bombaman
 					Kick3.sprite = E;
 					Bomb3.sprite = Space;
 				}
+				if (device.name.Contains("XInput"))
+				{
+					Movement3.sprite = JoyStick;
+					Kick3.sprite = XXbox;
+					Bomb3.sprite = A;
+				}
 			}
 			if (PlayerCount == 4 && playerInput.gameObject.GetComponent<Character>().playerID == 4)
 			{
@@ -150,6 +171,12 @@ namespace Bombaman
 					Movement4.sprite = WASD;
 					Kick4.sprite = E;
 					Bomb4.sprite = Space;
+				}
+				if (device.name.Contains("XInput"))
+				{
+					Movement4.sprite = JoyStick;
+					Kick4.sprite = XXbox;
+					Bomb4.sprite = A;
 				}
 			}
 			#endregion
