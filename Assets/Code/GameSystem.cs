@@ -36,6 +36,8 @@ namespace Bombaman
 		[SerializeField] private Sprite Square;
 		[SerializeField] private Sprite E;
 		[SerializeField] private Sprite Space;
+		[SerializeField] private Sprite A;
+		[SerializeField] private Sprite XXbox;
 
 		[Header("Player1")]
 		[SerializeField] private GameObject Player1;
@@ -78,6 +80,12 @@ namespace Bombaman
 				Movement1.sprite = WASD;
 				Kick1.sprite = E;
 				Bomb1.sprite = Space;
+			}
+			if (device.name.Contains("XInput"))
+			{
+				Movement1.sprite = JoyStick;
+				Kick1.sprite = XXbox;
+				Bomb1.sprite = A;
 			}
 
 			Invoke("DisableShowingofButtons", 3f);
