@@ -26,7 +26,7 @@ namespace Bombaman
 
 		private void OnTriggerEnter2D(Collider2D collision)
 		{
-			if(collision.tag == "Player" && SceneManager.GetActiveScene().name == "level0")
+			if(collision.tag == "Player" && SceneManager.GetActiveScene().name == "level0") // If making more levels add here
 			{
                 SceneManager.LoadScene("level1");// TODO: LOAD DIFFRENT SCENE.
 			}
