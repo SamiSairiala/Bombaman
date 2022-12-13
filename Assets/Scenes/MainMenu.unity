@@ -1156,6 +1156,8 @@ MonoBehaviour:
   Square: {fileID: 0}
   E: {fileID: 0}
   Space: {fileID: 0}
+  XXbox: {fileID: 0}
+  A: {fileID: 0}
   Player1: {fileID: 0}
   Movement1: {fileID: 0}
   Kick1: {fileID: 0}
@@ -1181,7 +1183,7 @@ AudioSource:
   m_GameObject: {fileID: 1100986482}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 6ddac6740e6087b4d90aaa248382c256, type: 2}
+  OutputAudioMixerGroup: {fileID: 6865321489283950843, guid: 6ddac6740e6087b4d90aaa248382c256, type: 2}
   m_audioClip: {fileID: 8300000, guid: 44f3d3ed1a5c907449a0b860c5c47d74, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
