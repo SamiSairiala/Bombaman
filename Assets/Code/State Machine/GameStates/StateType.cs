@@ -8,6 +8,7 @@
         InGame = 3,
         Lobby = 4,
         Multiplayer = 5,
-        GameOver = 6
+        GameOver = 6,
+        Credits = 7
     }
 }

@@ -22,6 +22,7 @@ namespace Bombaman
             AddTargetState(StateType.InGame);
             AddTargetState(StateType.Lobby);
             AddTargetState(StateType.Options);
+            AddTargetState(StateType.Credits);
         }
     }
 }
