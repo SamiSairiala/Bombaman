@@ -38,8 +38,16 @@ namespace Bombaman
                     Player1SingleIsWinner = true;
 				}
             }
-            
-            if(SceneManager.GetActiveScene().name == "2Player" || SceneManager.GetActiveScene().name == "3Player")
+            if (SceneManager.GetActiveScene().name == "level3")
+            {
+                DontDestroyOnLoad(this.gameObject);
+                if (gameSystem.Player1SingleWinner == true)
+                {
+                    Player1SingleIsWinner = true;
+                }
+            }
+
+            if (SceneManager.GetActiveScene().name == "2Player" || SceneManager.GetActiveScene().name == "3Player")
 			{
                 DontDestroyOnLoad(this.gameObject);
                 if(gameSystem.Player1Winner == true)

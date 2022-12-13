@@ -47,6 +47,7 @@ namespace Bombaman
             LobbyState lobby = new LobbyState();
             MultiplayerState multiplayer = new MultiplayerState();
             GameOverState gameOver = new GameOverState();
+            CreditsState creditsState = new CreditsState();
 
             states.Add(mainMenu);
             states.Add(options);
@@ -54,6 +55,7 @@ namespace Bombaman
             states.Add(lobby);
             states.Add(multiplayer);
             states.Add(gameOver);
+            states.Add(creditsState);
 
             foreach(GameStateBase state in states)
             {

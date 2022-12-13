@@ -18,6 +18,12 @@ namespace Bombaman
            
         }
 
+        public void Credits()
+		{
+            GameStateManager.Instance.Go(StateType.Credits);
+            GameObject.FindGameObjectWithTag("EventSystem").SetActive(false);
+        }
+
         public void Options()
         {
             GameStateManager.Instance.Go(StateType.Options);

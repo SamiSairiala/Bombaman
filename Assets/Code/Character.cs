@@ -107,6 +107,16 @@ namespace Bombaman
                 transform.position = GameObject.Find("Spawn1").transform.position;
                 startPosition = GameObject.FindGameObjectWithTag("Spawn1").transform.position;
             }
+            if (SceneManager.GetActiveScene().name == "level2")
+            {
+                transform.position = GameObject.Find("Spawn1").transform.position;
+                startPosition = GameObject.FindGameObjectWithTag("Spawn1").transform.position;
+            }
+            if (SceneManager.GetActiveScene().name == "level3")
+            {
+                transform.position = GameObject.Find("Spawn1").transform.position;
+                startPosition = GameObject.FindGameObjectWithTag("Spawn1").transform.position;
+            }
         }
 
         public int GetPlayerIndex()

@@ -33,8 +33,22 @@ namespace Bombaman
             if (collision.tag == "Player" && SceneManager.GetActiveScene().name == "level1")
             {
                 Debug.Log("Finished level 2");
-                FindObjectOfType<GameSystem>().Player1SingleWinner = true;
-                SceneManager.LoadScene("GameOver");// TODO: LOAD DIFFRENT SCENE.
+                SceneManager.LoadScene("level2");
+                //FindObjectOfType<GameSystem>().Player1SingleWinner = true;
+                //SceneManager.LoadScene("GameOver");// TODO: LOAD DIFFRENT SCENE.
+            }
+            if (collision.tag == "Player" && SceneManager.GetActiveScene().name == "level2")
+            {
+                Debug.Log("Finished level 3");
+                SceneManager.LoadScene("level3");
+                //FindObjectOfType<GameSystem>().Player1SingleWinner = true;
+                //SceneManager.LoadScene("GameOver");// TODO: LOAD DIFFRENT SCENE.
+            }
+            if (collision.tag == "Player" && SceneManager.GetActiveScene().name == "level3")
+            {
+                Debug.Log("Finished level 4");
+				FindObjectOfType<GameSystem>().Player1SingleWinner = true;
+                GameStateManager.Instance.Go(GameStates.StateType.GameOver);// TODO: LOAD DIFFRENT SCENE.
             }
         }
 	}
