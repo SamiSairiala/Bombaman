@@ -28,10 +28,11 @@ namespace Bombaman
 
         private bool Player1Alive = true;
         private bool Player2Alive = true;
-		#endregion
+        
+        #endregion
 
-		float animationKickDuration = 1f;
-
+        float animationKickDuration = 1f;
+        public ParticleSystem explosionParticle;
         [SerializeField]
         private int playerIndex = 0;
 
@@ -48,6 +49,8 @@ namespace Bombaman
         private AudioSource audioSource;
 
         private AudioSteps audioStepScript;
+
+        private Transform position;
 
         [SerializeField] private AudioClip Kicking;
 
@@ -286,8 +289,11 @@ namespace Bombaman
             enabled = false;
             GetComponent<BombController>().enabled = false;
             Debug.Log("Player " + playerID + " Died!");
+            Vector2 position = transform.position;
+            position = transform.position;
+            Instantiate(explosionParticle, position, Quaternion.identity);
 
-            if(SceneManager.GetActiveScene().name.ToLower().StartsWith("level"))
+            if (SceneManager.GetActiveScene().name.ToLower().StartsWith("level"))
 			{
                 gameSystem = FindObjectOfType<GameSystem>();
                 gameSystem.Player1Alive = false;
