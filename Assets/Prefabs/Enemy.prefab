@@ -210,6 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f7268b01f510c64397df3647b2ec577, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathAnim: {fileID: 5745332089462079035, guid: 15bf5fc81a644f94cbb8b0577f7df9f4, type: 3}
   pathfinder: {fileID: 7375906405084757987}
   Speed: 1
   health: {fileID: 0}

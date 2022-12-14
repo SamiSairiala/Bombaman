@@ -32,7 +32,7 @@ namespace Bombaman
         #endregion
 
         float animationKickDuration = 1f;
-        public ParticleSystem explosionParticle;
+        public ParticleSystem deathAnim;
         [SerializeField]
         private int playerIndex = 0;
 
@@ -291,7 +291,7 @@ namespace Bombaman
             Debug.Log("Player " + playerID + " Died!");
             Vector2 position = transform.position;
             position = transform.position;
-            Instantiate(explosionParticle, position, Quaternion.identity);
+            Instantiate(deathAnim, position, Quaternion.identity);
 
             if (SceneManager.GetActiveScene().name.ToLower().StartsWith("level"))
 			{

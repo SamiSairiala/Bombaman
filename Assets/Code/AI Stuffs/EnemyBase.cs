@@ -23,6 +23,7 @@ namespace Bombaman
         protected PathfindingNode  nextNode;
         protected Vector2 targetDir;
 
+        public ParticleSystem deathAnim;
         [SerializeField] protected Pathfinder pathfinder;
         private Grid grid;
 
@@ -151,7 +152,12 @@ namespace Bombaman
 
         public virtual void Death()
         {
+            Vector2 position = transform.position;
+            position = transform.position;
+            Instantiate(deathAnim, position, Quaternion.identity);
+
             Destroy(gameObject);
+
         }
     }
 }
